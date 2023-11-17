@@ -9,7 +9,7 @@ module.exports = (sequelize) => {
         primaryKey: true,
         allowNull: false,
       },
-      nameTipoMenu: {
+      idEspecialidad: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,

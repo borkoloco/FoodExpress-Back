@@ -39,10 +39,10 @@ const { Menu, Tipo, Especialidad } = sequelize.models;
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 
-Menu.hasMany(Tipo, { foreignKey: "TipoId" });
+Menu.hasMany(Tipo, { foreignKey: "idTipoMenu" , as: 'typeMenu' });
 Tipo.belongsTo(Menu);
 
-Menu.hasMany(Especialidad, { foreignKey: "EspecialidadId" });
+Menu.hasMany(Especialidad, { foreignKey: "specialtyMenuId", as: 'specialtyMenu' });
 Especialidad.belongsTo(Menu);
 
 module.exports = {
