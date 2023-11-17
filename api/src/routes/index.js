@@ -12,7 +12,7 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 
 router.use("/menus", menuRouter);
-router.use("/tipo", tipoRouter);
-router.use("/especialidad", especialidadRouter);
+router.use("/tipos", tipoRouter);
+router.use("/especialidades", especialidadRouter);
 
 module.exports = router;
