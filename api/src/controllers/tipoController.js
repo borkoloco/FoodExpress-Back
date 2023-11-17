@@ -1,8 +1,8 @@
 const { Tipo } = require("./../db.js");
 
-const getTipos = async () => {
+const getTipos = async (req, res) => {
   const tipos = await Tipo.findAll();
-  return tipos;
+  res.send("respondi bien tipos")
 };
 
-module.exports = { getTipos };
+module.exports = getTipos;
