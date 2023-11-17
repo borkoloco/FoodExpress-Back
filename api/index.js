@@ -9,3 +9,4 @@ conn.sync({ force: false, alter: true }).then(() => {
 });
 
 // "type": "module" en el json, para importar como en client, se agrega js a los archivos
+//comentario de prueba
