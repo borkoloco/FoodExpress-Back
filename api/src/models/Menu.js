@@ -8,6 +8,35 @@ module.exports = (sequelize) => {
       autoIncrement: true,
       allowNull: false,
     },
+    nameMenu: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    imageUrl: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    price: {
+      type: DataTypes.FLOAT,
+      allowNull: false,
+    },
+    available: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true,
+    },
+    idTipoMenu: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    idEspecialidad: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   });
 
 
