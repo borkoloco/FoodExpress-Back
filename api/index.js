@@ -7,6 +7,3 @@ conn.sync({ force: false, alter: true }).then(() => {
     console.log("Server listening..."); // eslint-disable-line no-console
   });
 });
-
-// "type": "module" en el json, para importar como en client, se agrega js a los archivos
-//comentario de prueba
