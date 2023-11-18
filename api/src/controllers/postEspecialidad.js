@@ -17,4 +17,5 @@ async function postEspecialidad(req, res) {
   }
 }
 
+
 module.exports = postEspecialidad;
