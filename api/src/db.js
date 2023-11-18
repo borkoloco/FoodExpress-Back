@@ -39,11 +39,11 @@ const { Menu, Tipo, Especialidad } = sequelize.models;
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 
-Menu.hasMany(Tipo, { foreignKey: "idTipoMenu" , as: 'typeMenu' });
-Tipo.belongsTo(Menu);
+Menu.belongsTo(Tipo, { foreignKey: "idTipoMenu" , as: 'typeMenu' });
 
-Menu.hasMany(Especialidad, { foreignKey: "specialtyMenuId", as: 'specialtyMenu' });
-Especialidad.belongsTo(Menu);
+
+Menu.belongsTo(Especialidad, { foreignKey: "idEspecialidad", as: 'specialtyMenu' });
+
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
