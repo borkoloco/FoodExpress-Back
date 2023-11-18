@@ -9,7 +9,6 @@ async function postEspecialidad(req, res) {
         NameEspecialidad,
     });
 
-    // Envía la respuesta con la nueva especialidad creada
     res.status(201).json(nuevaEspecialidad);
   } catch (error) {
     console.error(error);
