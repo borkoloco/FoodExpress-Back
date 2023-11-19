@@ -1,8 +1,12 @@
 const { Tipo } = require("./../db.js");
 
-const getTipos = async (req, res) => {
-  const tipos = await Tipo.findAll();
-  res.send("respondi bien tipos")
+const getTipo = async (req, res) => {
+  try {
+    const tipos = await Tipo.findAll();
+    res.status(200).json(tipos);
+  } catch (error) {
+    res.status(400).json("Tipo no encontrado");
+  }
 };
 
-module.exports = getTipos;
+module.exports = getTipo;

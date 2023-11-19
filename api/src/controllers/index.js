@@ -1,10 +1,12 @@
 const getMenu = require("./menuController");
 const getEspecialidad = require("./especialidadController");
-const getTipos = require("./tipoController");
+const getTipo = require("./tipoController");
 const postEspecialidad = require("./postEspecialidad");
+const postTipo = require("./postTipo");
 module.exports = {
-    getMenu,
-    getEspecialidad,
-    getTipos,
-    postEspecialidad
-}
+  getMenu,
+  getEspecialidad,
+  getTipo,
+  postEspecialidad,
+  postTipo,
+};
