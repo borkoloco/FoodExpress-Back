@@ -8,10 +8,12 @@ module.exports = (sequelize) => {
       autoIncrement: true,
       allowNull: false,
     },
-    NombreEspecialidad: {
+    NameEspecialidad: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-  });
+  },
+  { timestamps: false }
+  );
 
 };
