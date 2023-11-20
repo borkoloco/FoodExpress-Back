@@ -1,5 +1,4 @@
-const { Especialidad } = require('../db');
-
+const { Especialidad } = require("../db");
 
 async function getEspecialidad(req, res) {
   try {

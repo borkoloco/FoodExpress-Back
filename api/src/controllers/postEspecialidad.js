@@ -1,4 +1,4 @@
-const { Especialidad } = require('../db');
+const { Especialidad } = require("../db");
 
 async function postEspecialidad(req, res) {
   try {
@@ -6,7 +6,7 @@ async function postEspecialidad(req, res) {
 
     // Crea una nueva especialidad en la base de datos
     const nuevaEspecialidad = await Especialidad.create({
-        NameEspecialidad,
+      NameEspecialidad,
     });
 
     res.status(201).json(nuevaEspecialidad);
@@ -15,6 +15,5 @@ async function postEspecialidad(req, res) {
     res.status(500).send("Error al crear la especialidad");
   }
 }
-
 
 module.exports = postEspecialidad;
