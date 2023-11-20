@@ -1,6 +1,6 @@
 const { Tipo } = require("../db");
 
-async function postTipo(req, res) {
+const postTipo = async (req, res) => {
   try {
     const { nameTipo } = req.body;
     const nuevoTipo = await Tipo.create({
@@ -9,8 +9,9 @@ async function postTipo(req, res) {
 
     res.status(200).json(nuevoTipo);
   } catch (error) {
+    console.log(error.message);
     res.status(500).send("Error al crear tipo");
   }
-}
+};
 
 module.exports = postTipo;
