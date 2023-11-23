@@ -14,6 +14,7 @@ const {
   getEspecialidad,
   postEspecialidad,
   postTipo,
+  deleteTipo,
   deleteEspecialidad,
   updateEspecialidad,
 } = require("../controllers/index");
@@ -28,7 +29,8 @@ router.get("/tipos", getTipo);
 router.post("/addtipo", postTipo);
 router.get("/especialidades", getEspecialidad);
 router.post("/addespecialidad", postEspecialidad);
-router.patch("/updatetipo", updateTipo);
+router.patch("/updatetipo/:id", updateTipo);
+router.delete("/deletetipo/:id", deleteTipo);
 router.delete("/deleteespecialidad/:id", deleteEspecialidad);
 router.patch("/updateespecialidad/:id", updateEspecialidad);
 
