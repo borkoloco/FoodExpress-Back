@@ -14,6 +14,8 @@ const {
   getEspecialidad,
   postEspecialidad,
   postTipo,
+  deleteEspecialidad,
+  updateEspecialidad,
 } = require("../controllers/index");
 
 // Configurar los routers
@@ -27,5 +29,7 @@ router.post("/addtipo", postTipo);
 router.get("/especialidades", getEspecialidad);
 router.post("/addespecialidad", postEspecialidad);
 router.patch("/updatetipo", updateTipo);
+router.delete("/deleteespecialidad/:id", deleteEspecialidad);
+router.patch("/updateespecialidad/:id", updateEspecialidad);
 
 module.exports = router;
