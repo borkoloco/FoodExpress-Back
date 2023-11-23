@@ -10,6 +10,7 @@ const {
   findMenuById,
   createMenu,
   getTipo,
+  updateTipo,
   getEspecialidad,
   postEspecialidad,
   postTipo,
@@ -25,5 +26,6 @@ router.get("/tipos", getTipo);
 router.post("/addtipo", postTipo);
 router.get("/especialidades", getEspecialidad);
 router.post("/addespecialidad", postEspecialidad);
+router.patch("/updatetipo", updateTipo);
 
 module.exports = router;
