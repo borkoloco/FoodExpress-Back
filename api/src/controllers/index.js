@@ -6,6 +6,8 @@ const postTipo = require("./postTipo");
 const findMenuById = require("./findMenuByIdController");
 const createMenu = require("./createMenuController");
 const updateTipo = require("./updateTipoController");
+const updateEspecialidad = require("./updateEspecialidad");
+const deleteEspecialidad = require("./deleteEspecialidad")
 module.exports = {
   getMenu,
   findMenuById,
@@ -15,4 +17,6 @@ module.exports = {
   updateTipo,
   postEspecialidad,
   postTipo,
+  updateEspecialidad,
+  deleteEspecialidad,
 };
