@@ -1,4 +1,5 @@
 const getMenu = require("./menuController");
+const updateMenu = require("./updateMenu")
 const getEspecialidad = require("./especialidadController");
 const getTipo = require("./tipoController");
 const postEspecialidad = require("./postEspecialidad");
@@ -15,6 +16,7 @@ const loginCtrl = require("./loginController");
 const postRole = require("./postRoleController");
 module.exports = {
   getMenu,
+  updateMenu,
   findMenuById,
   createMenu,
   loginCtrl,
@@ -26,7 +28,7 @@ module.exports = {
   deleteTipo,
   postEspecialidad,
   postTipo,
-  getMenusByQuery
+  getMenusByQuery,
   updateEspecialidad,
   deleteEspecialidad,
 
