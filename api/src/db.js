@@ -60,9 +60,8 @@ User.belongsTo(Role, {
   as: "roleUser",
 });
 
-// User.belongsToMany(Menu, { through: "orden" });
-// Menu.belongsToMany(User, { through: "orden" });
-//tira error al establecer la relacion, ver porque
+User.belongsToMany(Menu, { through: "orden" });
+Menu.belongsToMany(User, { through: "orden" });
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

@@ -12,7 +12,7 @@ module.exports = (sequelize) => {
       },
       nameUser: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       email: {
         type: DataTypes.STRING,
@@ -29,15 +29,15 @@ module.exports = (sequelize) => {
 
       idRole: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
       },
       authProvider: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       idAuthProvider: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
       },
     },
     { timestamps: false }

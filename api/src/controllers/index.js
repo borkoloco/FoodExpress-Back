@@ -9,13 +9,19 @@ const updateTipo = require("./updateTipoController");
 const deleteTipo = require("./deleteTipoController");
 const updateEspecialidad = require("./updateEspecialidad");
 const deleteEspecialidad = require("./deleteEspecialidad");
+const registerCtrl = require("./registerController");
+const loginCtrl = require("./loginController");
+const postRole = require("./postRoleController");
 module.exports = {
   getMenu,
   findMenuById,
   createMenu,
+  loginCtrl,
+  registerCtrl,
   getEspecialidad,
   getTipo,
   updateTipo,
+  postRole,
   deleteTipo,
   postEspecialidad,
   postTipo,

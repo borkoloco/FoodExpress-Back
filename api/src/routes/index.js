@@ -11,12 +11,15 @@ const {
   createMenu,
   getTipo,
   updateTipo,
+  postRole,
   getEspecialidad,
   postEspecialidad,
   postTipo,
   deleteTipo,
   deleteEspecialidad,
   updateEspecialidad,
+  loginCtrl,
+  registerCtrl,
 } = require("../controllers/index");
 
 // Configurar los routers
@@ -33,5 +36,8 @@ router.patch("/updatetipo/:id", updateTipo);
 router.delete("/deletetipo/:id", deleteTipo);
 router.delete("/deleteespecialidad/:id", deleteEspecialidad);
 router.patch("/updateespecialidad/:id", updateEspecialidad);
+router.post("/login", loginCtrl);
+router.post("/register", registerCtrl);
+router.post("/addrole", postRole);
 
 module.exports = router;
