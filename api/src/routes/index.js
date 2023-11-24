@@ -7,6 +7,7 @@ const router = Router();
 
 const {
   getMenu,
+  updateMenu,
   findMenuById,
   createMenu,
   getTipo,
@@ -28,6 +29,7 @@ const {
 // Ejemplo: router.use('/auth', authRouter);
 
 router.get("/menus", getMenu);
+router.patch("/updatemenu/:id", updateMenu);
 router.get("/menu/", getMenusByQuery)
 router.get("/menus/:id", findMenuById);
 router.post("/addmenu", createMenu);
