@@ -5,7 +5,7 @@ const postEspecialidad = require("./postEspecialidad");
 const postTipo = require("./postTipo");
 const findMenuById = require("./findMenuByIdController");
 const createMenu = require("./createMenuController");
-const getMenusByQuery= require("./getMenusByQuery");
+const getMenusByQuery = require("./getMenusByQuery");
 const updateTipo = require("./updateTipoController");
 const deleteTipo = require("./deleteTipoController");
 const updateEspecialidad = require("./updateEspecialidad");
@@ -26,8 +26,9 @@ module.exports = {
   deleteTipo,
   postEspecialidad,
   postTipo,
-  getMenusByQuery
+  getMenusByQuery,
   updateEspecialidad,
   deleteEspecialidad,
-
 };
+
+// comentarios
