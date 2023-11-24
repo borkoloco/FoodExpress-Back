@@ -15,17 +15,20 @@ const {
   getEspecialidad,
   postEspecialidad,
   postTipo,
+  getMenusByQuery,
   deleteTipo,
   deleteEspecialidad,
   updateEspecialidad,
   loginCtrl,
   registerCtrl,
+
 } = require("../controllers/index");
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
 router.get("/menus", getMenu);
+router.get("/menu/", getMenusByQuery)
 router.get("/menus/:id", findMenuById);
 router.post("/addmenu", createMenu);
 router.get("/tipos", getTipo);
