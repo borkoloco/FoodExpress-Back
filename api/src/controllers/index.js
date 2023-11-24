@@ -5,6 +5,7 @@ const postEspecialidad = require("./postEspecialidad");
 const postTipo = require("./postTipo");
 const findMenuById = require("./findMenuByIdController");
 const createMenu = require("./createMenuController");
+const getMenusByQuery= require("./getMenusByQuery");
 module.exports = {
   getMenu,
   findMenuById,
@@ -13,4 +14,5 @@ module.exports = {
   getTipo,
   postEspecialidad,
   postTipo,
+  getMenusByQuery
 };
