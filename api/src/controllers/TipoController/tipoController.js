@@ -1,4 +1,4 @@
-const { Tipo } = require("../db.js");
+const { Tipo } = require("../../db.js");
 
 const getTipo = async (req, res) => {
   try {

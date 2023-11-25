@@ -1,4 +1,4 @@
-const { Tipo } = require("../db");
+const { Tipo } = require("../../db");
 
 const postTipo = async (req, res) => {
   try {

@@ -1,4 +1,4 @@
-const { Menu, Tipo, Especialidad } = require("../db");
+const { Menu, Tipo, Especialidad } = require("../../db");
 
 // funcion para buscar en la tabla de Especialidad mi rey
 const findIdByEspecialidadNombre = async (nombre) => {
