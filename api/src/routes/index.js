@@ -7,23 +7,42 @@ const router = Router();
 
 const {
   getMenu,
+  updateMenu,
   findMenuById,
   createMenu,
   getTipo,
+  updateTipo,
+  postRole,
   getEspecialidad,
   postEspecialidad,
   postTipo,
+  getMenusByQuery,
+  deleteTipo,
+  deleteEspecialidad,
+  updateEspecialidad,
+  loginCtrl,
+  registerCtrl,
+
 } = require("../controllers/index");
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
 router.get("/menus", getMenu);
+router.patch("/updatemenu/:id", updateMenu);
+router.get("/menu/", getMenusByQuery)
 router.get("/menus/:id", findMenuById);
 router.post("/addmenu", createMenu);
 router.get("/tipos", getTipo);
 router.post("/addtipo", postTipo);
 router.get("/especialidades", getEspecialidad);
 router.post("/addespecialidad", postEspecialidad);
+router.patch("/updatetipo/:id", updateTipo);
+router.delete("/deletetipo/:id", deleteTipo);
+router.delete("/deleteespecialidad/:id", deleteEspecialidad);
+router.patch("/updateespecialidad/:id", updateEspecialidad);
+router.post("/login", loginCtrl);
+router.post("/register", registerCtrl);
+router.post("/addrole", postRole);
 
 module.exports = router;
