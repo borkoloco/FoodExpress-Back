@@ -1,5 +1,6 @@
 const { compare } = require("bcryptjs");
 const { User } = require("../db");
+// const { tokenSign } = require("../helpers/generateToken");
 
 const loginCtrl = async (req, res) => {
   try {
@@ -10,10 +11,12 @@ const loginCtrl = async (req, res) => {
       return;
     }
     const checkPassword = await compare(password, user.password);
+    // const tokenSession = await tokenSign(user);
 
     if (checkPassword) {
       res.send({
         data: user,
+        // tokenSession,
         message: "Login exitoso",
       });
       return;
