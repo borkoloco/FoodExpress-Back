@@ -15,6 +15,7 @@ const {
   getEspecialidad,
   postEspecialidad,
   postTipo,
+  updateMenu,
   getMenusByQuery,
   deleteTipo,
   deleteEspecialidad,
@@ -43,5 +44,6 @@ router.post("/login", loginCtrl);
 router.post("/register", registerCtrl);
 router.post("/addrole", postRole);
 router.get("/users/:email", getUserByEmail);
+router.patch("/updatemenu/:id", updateMenu);
 
 module.exports = router;
