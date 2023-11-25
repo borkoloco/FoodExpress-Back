@@ -1,4 +1,4 @@
-const { Especialidad } = require("../db");
+const { Especialidad } = require("../../db");
 
 async function updateEspecialidad(req, res) {
   const { idEspecialidad } = req.params; // Extract idEspecialidad from params
