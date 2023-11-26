@@ -39,7 +39,7 @@ router.post("/addespecialidad", postEspecialidad);
 router.patch("/updatetipo/:id", updateTipo);
 router.delete("/deletetipo/:id", deleteTipo);
 router.delete("/deleteespecialidad/:id", deleteEspecialidad);
-router.patch("/updateespecialidad/:id", updateEspecialidad);
+router.patch("/updateespecialidad/:idEspecialidad", updateEspecialidad);
 router.post("/login", loginCtrl);
 router.post("/register", registerCtrl);
 router.post("/addrole", postRole);
