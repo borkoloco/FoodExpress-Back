@@ -15,12 +15,14 @@ const loginCtrl = require("./AuthController/loginController");
 const postRole = require("./AuthController/postRoleController");
 const getUserByEmail = require("./AuthController/getUserByEmail");
 const updateMenu = require("./MenuController/updateMenu");
+const updateUser = require("./AuthController/updateUser");
 
 module.exports = {
   getMenu,
   updateMenu,
   findMenuById,
   createMenu,
+  updateUser,
   loginCtrl,
   registerCtrl,
   getEspecialidad,

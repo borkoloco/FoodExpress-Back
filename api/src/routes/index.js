@@ -23,6 +23,7 @@ const {
   loginCtrl,
   registerCtrl,
   getUserByEmail,
+  updateUser,
 } = require("../controllers/index");
 
 // Configurar los routers
@@ -39,11 +40,12 @@ router.post("/addespecialidad", postEspecialidad);
 router.patch("/updatetipo/:id", updateTipo);
 router.delete("/deletetipo/:id", deleteTipo);
 router.delete("/deleteespecialidad/:id", deleteEspecialidad);
-router.patch("/updateespecialidad/:id", updateEspecialidad);
+router.patch("/updateespecialidad/:idEspecialidad", updateEspecialidad);
 router.post("/login", loginCtrl);
 router.post("/register", registerCtrl);
 router.post("/addrole", postRole);
 router.get("/users/:email", getUserByEmail);
 router.patch("/updatemenu/:id", updateMenu);
+router.patch("/updateuser/:id", updateUser);
 
 module.exports = router;
