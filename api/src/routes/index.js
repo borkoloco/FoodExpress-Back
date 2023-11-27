@@ -23,6 +23,7 @@ const {
   loginCtrl,
   registerCtrl,
   getUserByEmail,
+  updateUser,
 } = require("../controllers/index");
 
 // Configurar los routers
@@ -45,5 +46,6 @@ router.post("/register", registerCtrl);
 router.post("/addrole", postRole);
 router.get("/users/:email", getUserByEmail);
 router.patch("/updatemenu/:id", updateMenu);
+router.patch("/updateuser/:id", updateUser);
 
 module.exports = router;
