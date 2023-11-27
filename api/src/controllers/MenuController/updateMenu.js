@@ -1,6 +1,5 @@
-const { Menu, Tipo, Especialidad } = require("../db");
+const { Menu, Tipo, Especialidad } = require("../../db");
 
-// funcion para buscar en la tabla de Especialidad mi rey
 const findIdByEspecialidadNombre = async (nombre) => {
   const especialidad = await Especialidad.findOne({
     where: { NameEspecialidad: nombre },
@@ -9,15 +8,15 @@ const findIdByEspecialidadNombre = async (nombre) => {
   return especialidad ? especialidad.idEspecialidad : null;
 };
 
-// funcion para buscar en la tabla de Tipo my king
-
 const findIdByTipoNombre = async (nombre) => {
   const tipo = await Tipo.findOne({ where: { nameTipo: nombre } });
 
   return tipo ? tipo.idTipoMenu : null;
 };
 
-const createMenu = async (req, res) => {
+const updateMenu = async (req, res) => {
+  console.log("Datos recibidos en el cuerpo de la solicitud:", req.body);
+  const { id } = req.params; // Obtener el ID del menú a actualizar desde los parámetros de la solicitud
   const { nameMenu, imageUrl, price, tipo, especialidad, description } =
     req.body;
 
@@ -35,20 +34,32 @@ const createMenu = async (req, res) => {
         .status(404)
         .json({ error: "Tipo o especialidad no encontrados." });
     }
-    const newMenu = await Menu.create({
-      nameMenu,
-      imageUrl,
-      price,
-      idTipoMenu,
-      idEspecialidad,
-      description,
-    });
 
-    res.status(201).json(newMenu);
+    // Actualizar el menú
+    const updatedMenu = await Menu.update(
+      {
+        nameMenu,
+        imageUrl,
+        price,
+        idTipoMenu,
+        idEspecialidad,
+        description,
+      },
+      {
+        where: { idMenu: id },
+      }
+    );
+
+    if (updatedMenu[0] === 0) {
+      // Si no se actualiza ningún menú (el menú con ese ID no existe)
+      return res.status(404).json({ error: "Menú no encontrado." });
+    }
+
+    res.status(200).json({ message: "Menú actualizado exitosamente." });
   } catch (error) {
-    console.error("Error al crear el menú:", error);
-    res.status(500).json({ error: "No se pudo crear el menú." });
+    console.error("Error al actualizar el menú:", error);
+    res.status(500).json({ error: "No se pudo actualizar el menú." });
   }
 };
 
-module.exports = createMenu;
+module.exports = updateMenu;

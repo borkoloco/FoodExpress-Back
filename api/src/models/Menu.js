@@ -13,6 +13,7 @@ module.exports = (sequelize) => {
       nameMenu: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
       },
       description: {
         type: DataTypes.TEXT,
