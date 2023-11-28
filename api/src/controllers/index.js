@@ -1,4 +1,5 @@
 const getMenu = require("./MenuController/menuController");
+const deleteMenu= require("./MenuController/deleteMenuController");
 const getEspecialidad = require("./EspecController/especialidadController");
 const getTipo = require("./TipoController/tipoController");
 const postEspecialidad = require("./EspecController/postEspecialidad");
@@ -23,6 +24,7 @@ const updateDispMenu = require("./MenuController/updateDispMenu");
 
 module.exports = {
   getMenu,
+  deleteMenu,
   updateMenu,
   findMenuById,
   createMenu,
