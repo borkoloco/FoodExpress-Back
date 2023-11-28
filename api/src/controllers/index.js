@@ -19,6 +19,7 @@ const updateUser = require("./AuthController/updateUser");
 const deleteEspec2 = require("./EspecController/deleteEspecNoAsoc");
 const deleteTipo2 = require("./TipoController/deleteTipoNoAsociado");
 const findOrCreateByEmail = require("./AuthController/findOrCreateByEmail");
+const updateDispMenu = require("./MenuController/updateDispMenu");
 
 module.exports = {
   getMenu,
@@ -42,4 +43,5 @@ module.exports = {
   deleteEspec2,
   deleteTipo2,
   findOrCreateByEmail,
+  updateDispMenu,
 };
