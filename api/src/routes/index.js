@@ -7,6 +7,7 @@ const router = Router();
 
 const {
   getMenu,
+  deleteMenu,
   findMenuById,
   createMenu,
   getTipo,
@@ -32,6 +33,7 @@ const {
 router.get("/menus", getMenu);
 router.get("/menu/", getMenusByQuery);
 router.get("/menus/:id", findMenuById);
+router.patch("/menu/:id", deleteMenu);
 router.post("/addmenu", createMenu);
 router.get("/tipos", getTipo);
 router.post("/addtipo", postTipo);
