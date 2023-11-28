@@ -16,6 +16,9 @@ const postRole = require("./AuthController/postRoleController");
 const getUserByEmail = require("./AuthController/getUserByEmail");
 const updateMenu = require("./MenuController/updateMenu");
 const updateUser = require("./AuthController/updateUser");
+const deleteEspec2 = require("./EspecController/deleteEspecNoAsoc");
+const deleteTipo2 = require("./TipoController/deleteTipoNoAsociado");
+const findOrCreateByEmail = require("./AuthController/findOrCreateByEmail");
 
 module.exports = {
   getMenu,
@@ -36,4 +39,7 @@ module.exports = {
   getMenusByQuery,
   updateEspecialidad,
   deleteEspecialidad,
+  deleteEspec2,
+  deleteTipo2,
+  findOrCreateByEmail,
 };
