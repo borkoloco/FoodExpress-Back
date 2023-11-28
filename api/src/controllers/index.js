@@ -1,4 +1,5 @@
 const getMenu = require("./MenuController/menuController");
+const deleteMenu= require("./MenuController/deleteMenuController");
 const getEspecialidad = require("./EspecController/especialidadController");
 const getTipo = require("./TipoController/tipoController");
 const postEspecialidad = require("./EspecController/postEspecialidad");
@@ -16,9 +17,14 @@ const postRole = require("./AuthController/postRoleController");
 const getUserByEmail = require("./AuthController/getUserByEmail");
 const updateMenu = require("./MenuController/updateMenu");
 const updateUser = require("./AuthController/updateUser");
+const deleteEspec2 = require("./EspecController/deleteEspecNoAsoc");
+const deleteTipo2 = require("./TipoController/deleteTipoNoAsociado");
+const findOrCreateByEmail = require("./AuthController/findOrCreateByEmail");
+const updateDispMenu = require("./MenuController/updateDispMenu");
 
 module.exports = {
   getMenu,
+  deleteMenu,
   updateMenu,
   findMenuById,
   createMenu,
@@ -36,4 +42,8 @@ module.exports = {
   getMenusByQuery,
   updateEspecialidad,
   deleteEspecialidad,
+  deleteEspec2,
+  deleteTipo2,
+  findOrCreateByEmail,
+  updateDispMenu,
 };
