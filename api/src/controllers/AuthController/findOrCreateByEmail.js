@@ -8,12 +8,12 @@ const findOrCreateByEmail = async (req, res) => {
   }
 
   try {
-    const userName = email.split("@")[0];
+    const nameUser = email.split("@")[0];
 
     let [user, created] = await User.findOrCreate({
       where: { email },
       defaults: {
-        userName,
+        nameUser,
       },
     });
 
