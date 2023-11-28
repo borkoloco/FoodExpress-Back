@@ -27,6 +27,7 @@ const {
   deleteTipo2,
   deleteEspec2,
   findOrCreateByEmail,
+  updateDispMenu,
 } = require("../controllers/index");
 
 // Configurar los routers
@@ -53,5 +54,6 @@ router.patch("/updateuser/:id", updateUser);
 router.delete("deletetipo2/:id", deleteTipo2);
 router.delete("/deleteespec2/:id", deleteEspec2);
 router.post("/findorcreatebyemail", findOrCreateByEmail);
+router.patch("/updatedispmenu/:id", updateDispMenu);
 
 module.exports = router;
