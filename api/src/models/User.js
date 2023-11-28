@@ -31,6 +31,10 @@ module.exports = (sequelize) => {
         type: DataTypes.INTEGER,
         allowNull: true,
       },
+      isLogged: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+      },
       authProvider: {
         type: DataTypes.STRING,
         allowNull: true,
