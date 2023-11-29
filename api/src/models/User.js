@@ -33,7 +33,7 @@ module.exports = (sequelize) => {
       },
       isLogged: {
         type: DataTypes.BOOLEAN,
-        allowNull: false,
+        defaultValue: false,
       },
       authProvider: {
         type: DataTypes.STRING,

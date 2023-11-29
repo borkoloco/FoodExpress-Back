@@ -7,6 +7,7 @@ const router = Router();
 
 const {
   getMenu,
+  deleteMenu,
   findMenuById,
   createMenu,
   getTipo,
@@ -24,6 +25,10 @@ const {
   registerCtrl,
   getUserByEmail,
   updateUser,
+  deleteTipo2,
+  deleteEspec2,
+  findOrCreateByEmail,
+  updateDispMenu,
 } = require("../controllers/index");
 
 // Configurar los routers
@@ -32,6 +37,7 @@ const {
 router.get("/menus", getMenu);
 router.get("/menu/", getMenusByQuery);
 router.get("/menus/:id", findMenuById);
+router.patch("/menu/:id", deleteMenu);
 router.post("/addmenu", createMenu);
 router.get("/tipos", getTipo);
 router.post("/addtipo", postTipo);
@@ -47,5 +53,9 @@ router.post("/addrole", postRole);
 router.get("/users/:email", getUserByEmail);
 router.patch("/updatemenu/:id", updateMenu);
 router.patch("/updateuser/:id", updateUser);
+router.delete("deletetipo2/:id", deleteTipo2);
+router.delete("/deleteespec2/:id", deleteEspec2);
+router.post("/findorcreatebyemail", findOrCreateByEmail);
+router.patch("/updatedispmenu/:id", updateDispMenu);
 
 module.exports = router;
