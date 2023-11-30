@@ -53,7 +53,7 @@ router.post("/addrole", postRole);
 router.get("/users/:email", getUserByEmail);
 router.patch("/updatemenu/:id", updateMenu);
 router.patch("/updateuser/:id", updateUser);
-router.delete("deletetipo2/:id", deleteTipo2);
+router.delete("/deletetipo2/:id", deleteTipo2);
 router.delete("/deleteespec2/:id", deleteEspec2);
 router.post("/findorcreatebyemail", findOrCreateByEmail);
 router.patch("/updatedispmenu/:id", updateDispMenu);
