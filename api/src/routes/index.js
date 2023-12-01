@@ -29,8 +29,15 @@ const {
   deleteEspec2,
   findOrCreateByEmail,
   updateDispMenu,
-  sendEmail
+  sendEmail,
+  getAllReviews,
+  getReviewById,
+  getReviewsByMenu,
+  getReviewsByUser,
+  deleteReviewById,
+  addReview,
 } = require("../controllers/index");
+const updateReviewById = require("../controllers/EmailController/updateReview");
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -59,5 +66,12 @@ router.delete("/deleteespec2/:id", deleteEspec2);
 router.post("/findorcreatebyemail", findOrCreateByEmail);
 router.patch("/updatedispmenu/:id", updateDispMenu);
 router.post("/sendEmail", sendEmail);
+router.get("/getallreviews", getAllReviews);
+router.get("/getreview/:id", getReviewById);
+router.get("/getreviewsmenu/:idMenu", getReviewsByMenu);
+router.get("/getreviewsuser/:idUser", getReviewsByUser);
+router.delete("/deletereview/:id", deleteReviewById);
+router.patch("/updatereview/:id", updateReviewById);
+router.post("/addreview", addReview);
 
 module.exports = router;
