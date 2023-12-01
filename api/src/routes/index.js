@@ -29,6 +29,7 @@ const {
   deleteEspec2,
   findOrCreateByEmail,
   updateDispMenu,
+  sendEmail
 } = require("../controllers/index");
 
 // Configurar los routers
@@ -57,5 +58,6 @@ router.delete("/deletetipo2/:id", deleteTipo2);
 router.delete("/deleteespec2/:id", deleteEspec2);
 router.post("/findorcreatebyemail", findOrCreateByEmail);
 router.patch("/updatedispmenu/:id", updateDispMenu);
+router.post("/sendEmail", sendEmail);
 
 module.exports = router;

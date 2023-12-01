@@ -1,26 +1,40 @@
+
+//Gets
 const getMenu = require("./MenuController/menuController");
-const deleteMenu= require("./MenuController/deleteMenuController");
 const getEspecialidad = require("./EspecController/especialidadController");
 const getTipo = require("./TipoController/tipoController");
+const getMenusByQuery = require("./MenuController/getMenusByQuery");
+const getUserByEmail = require("./AuthController/getUserByEmail");
+const findMenuById = require("./MenuController/findMenuByIdController");
+//fin gets
+
+//Deletes
+const deleteMenu= require("./MenuController/deleteMenuController");
+const deleteEspecialidad = require("./EspecController/deleteEspecialidad");
+const deleteEspec2 = require("./EspecController/deleteEspecNoAsoc");
+const deleteTipo = require("./TipoController/deleteTipoController");
+const deleteTipo2 = require("./TipoController/deleteTipoNoAsociado");
+//fin deletes
+
+
+//posts
 const postEspecialidad = require("./EspecController/postEspecialidad");
 const postTipo = require("./TipoController/postTipo");
-const findMenuById = require("./MenuController/findMenuByIdController");
 const createMenu = require("./MenuController/createMenuController");
-const getMenusByQuery = require("./MenuController/getMenusByQuery");
-const updateTipo = require("./TipoController/updateTipoController");
-const deleteTipo = require("./TipoController/deleteTipoController");
-const updateEspecialidad = require("./EspecController/updateEspecialidad");
-const deleteEspecialidad = require("./EspecController/deleteEspecialidad");
-const registerCtrl = require("./AuthController/registerController");
-const loginCtrl = require("./AuthController/loginController");
 const postRole = require("./AuthController/postRoleController");
-const getUserByEmail = require("./AuthController/getUserByEmail");
+const loginCtrl = require("./AuthController/loginController");
+const registerCtrl = require("./AuthController/registerController");
+const findOrCreateByEmail = require("./AuthController/findOrCreateByEmail");
+const sendEmail = require("./EmailController/sendEmail")
+//fin posts
+
+//updates
+const updateTipo = require("./TipoController/updateTipoController");
+const updateEspecialidad = require("./EspecController/updateEspecialidad");
 const updateMenu = require("./MenuController/updateMenu");
 const updateUser = require("./AuthController/updateUser");
-const deleteEspec2 = require("./EspecController/deleteEspecNoAsoc");
-const deleteTipo2 = require("./TipoController/deleteTipoNoAsociado");
-const findOrCreateByEmail = require("./AuthController/findOrCreateByEmail");
 const updateDispMenu = require("./MenuController/updateDispMenu");
+//fin updates
 
 module.exports = {
   getMenu,
@@ -46,4 +60,5 @@ module.exports = {
   deleteTipo2,
   findOrCreateByEmail,
   updateDispMenu,
+  sendEmail,
 };
