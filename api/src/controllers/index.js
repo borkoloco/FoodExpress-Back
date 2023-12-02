@@ -5,11 +5,11 @@ const getTipo = require("./TipoController/tipoController");
 const getMenusByQuery = require("./MenuController/getMenusByQuery");
 const getUserByEmail = require("./UserController/getUserByEmail");
 const findMenuById = require("./MenuController/findMenuByIdController");
-const getAllReviews = require("./EmailController/getAllReviews");
-const getReviewById = require("./EmailController/getReviewById");
-const getReviewsByMenu = require("./EmailController/getReviewsByMenu");
-const getReviewsByUser = require("./EmailController/getReviewsByUser");
-
+const getAllReviews = require("./ReviewsController/getAllReviews");
+const getReviewById = require("./ReviewsController/getReviewById");
+const getReviewsByMenu = require("./ReviewsController/getReviewsByMenu");
+const getReviewsByUser = require("./ReviewsController/getReviewsByUser");
+const getAvgReview = require("./ReviewsController/getAvgReview");
 //fin gets
 
 //Deletes
@@ -18,7 +18,7 @@ const deleteEspecialidad = require("./EspecController/deleteEspecialidad");
 const deleteEspec2 = require("./EspecController/deleteEspecNoAsoc");
 const deleteTipo = require("./TipoController/deleteTipoController");
 const deleteTipo2 = require("./TipoController/deleteTipoNoAsociado");
-const deleteReviewById = require("./EmailController/deleteReview");
+const deleteReviewById = require("./ReviewsController/deleteReview");
 //fin deletes
 
 //posts
@@ -30,7 +30,7 @@ const loginCtrl = require("./AuthController/loginController");
 const registerCtrl = require("./AuthController/registerController");
 const findOrCreateByEmail = require("./UserController/findOrCreateByEmail");
 const sendEmail = require("./EmailController/sendEmail");
-const addReview = require("./EmailController/postReview");
+const addReview = require("./ReviewsController/postReview");
 //fin posts
 
 //updates
@@ -39,6 +39,7 @@ const updateEspecialidad = require("./EspecController/updateEspecialidad");
 const updateMenu = require("./MenuController/updateMenu");
 const updateUser = require("./UserController/updateUser");
 const updateDispMenu = require("./MenuController/updateDispMenu");
+const updateReviewById = require("./ReviewsController/updateReview");
 //fin updates
 
 module.exports = {
@@ -72,4 +73,6 @@ module.exports = {
   getReviewsByUser,
   deleteReviewById,
   addReview,
+  updateReviewById,
+  getAvgReview,
 };

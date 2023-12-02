@@ -36,8 +36,9 @@ const {
   getReviewsByUser,
   deleteReviewById,
   addReview,
+  updateReviewById,
+  getAvgReview,
 } = require("../controllers/index");
-const updateReviewById = require("../controllers/EmailController/updateReview");
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -73,5 +74,6 @@ router.get("/getreviewsuser/:idUser", getReviewsByUser);
 router.delete("/deletereview/:id", deleteReviewById);
 router.patch("/updatereview/:id", updateReviewById);
 router.post("/addreview", addReview);
+router.get("/getavgreview/:id", getAvgReview);
 
 module.exports = router;
