@@ -29,8 +29,8 @@ module.exports = (sequelize) => {
         defaultValue: DataTypes.NOW,
       },
       // status: {
-      //   type: DataTypes.ENUM("Aprobado", "Rechazado", "Pendiente"),
-      //   defaultValue: "Pendiente",
+      //   type: DataTypes.ENUM("aprobado", "rechazado", "pendiente"),
+      //   defaultValue: "pendiente",
       // },
     },
     {
