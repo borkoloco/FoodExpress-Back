@@ -38,7 +38,9 @@ const {
   addReview,
   updateReviewById,
   getAvgReview,
+  sendBill,
 } = require("../controllers/index");
+
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -67,6 +69,7 @@ router.delete("/deleteespec2/:id", deleteEspec2);
 router.post("/findorcreatebyemail", findOrCreateByEmail);
 router.patch("/updatedispmenu/:id", updateDispMenu);
 router.post("/sendEmail", sendEmail);
+router.post("/sendBill", sendBill);
 router.get("/getallreviews", getAllReviews);
 router.get("/getreview/:id", getReviewById);
 router.get("/getreviewsmenu/:idMenu", getReviewsByMenu);
