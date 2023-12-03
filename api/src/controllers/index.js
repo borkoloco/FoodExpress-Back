@@ -31,6 +31,7 @@ const registerCtrl = require("./AuthController/registerController");
 const findOrCreateByEmail = require("./UserController/findOrCreateByEmail");
 const sendEmail = require("./EmailController/sendEmail");
 const addReview = require("./ReviewsController/postReview");
+const sendBill = require("./EmailController/sendBill");
 //fin posts
 
 //updates
@@ -67,6 +68,7 @@ module.exports = {
   findOrCreateByEmail,
   updateDispMenu,
   sendEmail,
+  sendBill,
   getAllReviews,
   getReviewById,
   getReviewsByMenu,

@@ -1,0 +1,113 @@
+const nodemailer = require("nodemailer")
+
+
+async function sendBill(req, res) {
+    const { name, email, compras } = req.body;
+    const config = {
+        host: 'smtp.gmail.com',
+        port: 587,
+        auth: {
+            user: 'food.expresshenry@gmail.com',
+            pass: 'tnnb gpjo tqzh tmpl'
+        }
+    };
+
+    const htmlBody = `
+    <html>
+    <head>
+    <style>
+    .container {
+        width: 300px;
+        padding: 15px;
+        background: #ffffff;
+        text-align: center;
+        border: 1px solid #000;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+        position: relative;
+      }
+      
+      .container .title {
+        font-size: 2rem;
+        font-weight: 500;
+        color: #333;
+      }
+      
+      .container .price {
+        color: #40B3A2;
+        font-weight: 700;
+        font-size: 2.2rem;
+        margin: 10px 0;
+      }
+      
+      .container span {
+        font-size: 1.2rem;
+      }
+      
+      .container .description {
+        color: #3b3b3b;
+        font-size: 1.1rem;
+        margin: 10px 0 10px;
+      }
+      
+      .container .offer {
+        display: block;
+        color: #555;
+        font-size: 1rem;
+        margin-top: 10px;
+      }
+    
+      
+      .ribbon {
+        width: 200px;
+        font-size: 0.8rem;
+        text-align: center;
+        justify-content: center;
+        padding: 4px 0;
+        border: 1px solid #000;
+        background: rgb(228, 112, 4);
+        color: #fff;
+        position: absolute;
+        transform: rotate(-45deg);
+        right: -10px;
+        top: 55%;
+      }
+    </style>
+</head>
+        <body>
+        <div class="container">
+        <p class="title">Tu recibo</p>
+        <p class="price">$20<span>/Total</span></p>
+        <p class="description">Tus compras:</p>
+        <b class="offer">${compras}</b>
+        <b class="offer">cosas y mas cosas.</b>
+        <b class="offer">cosas y mas cosas.</b>
+        <b class="offer">cosas y mas cosas.</b>
+        <b class="offer">cosas y mas cosas.</b>
+        <p class="title">Food Express</p>
+        </body>
+    </html>
+`;
+
+    const mensaje = {
+        from: 'food.expresshenry@gmail.com', 
+        to: email,
+        subject: `Hola ${name}, tu recibo de compra desde la pagina de Food Express`,
+        text: compras,
+        html: htmlBody
+    };
+
+    try {
+        const transport = nodemailer.createTransport(config);
+        const info = await transport.sendMail(mensaje);
+        console.log('Correo electrónico enviado:', info);
+        res.status(200).json({ message: 'Correo electrónico enviado exitosamente.' });
+    } catch (error) {
+        console.error('Error al enviar el correo electrónico:', error);
+        res.status(500).json({ error: 'Error al enviar el correo electrónico.' });
+    }
+};
+
+
+module.exports = sendBill;
