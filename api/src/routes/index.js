@@ -39,6 +39,8 @@ const {
   updateReviewById,
   getAvgReview,
   sendBill,
+  postCarrito,
+  getCarrito
 } = require("../controllers/index");
 
 
@@ -78,5 +80,8 @@ router.delete("/deletereview/:id", deleteReviewById);
 router.patch("/updatereview/:id", updateReviewById);
 router.post("/addreview", addReview);
 router.get("/getavgreview/:id", getAvgReview);
+router.get('/getcarrito/:idUser', getCarrito);
+router.post("/carrito/add", postCarrito);
+
 
 module.exports = router;
