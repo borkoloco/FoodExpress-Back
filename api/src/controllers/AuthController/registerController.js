@@ -1,5 +1,5 @@
 const { User } = require("../../db");
-const { encrypt, compare } = require("../../helpers/bcryptController");
+const { encrypt, compare } = require("./bcryptController");
 
 const registerCtrl = async (req, res) => {
   try {

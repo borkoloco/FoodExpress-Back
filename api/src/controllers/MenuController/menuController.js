@@ -1,6 +1,7 @@
 const { Menu, Tipo, Especialidad } = require("../../db");
 
 async function getMenu(req, res) {
+ 
   try {
     // Busca todas las especialidades en la base de datos
     const menu = await Menu.findAll({

@@ -16,7 +16,7 @@ module.exports = (sequelize) => {
       },
       email: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
       },
       imageUrl: {
         type: DataTypes.STRING,
@@ -30,6 +30,10 @@ module.exports = (sequelize) => {
       idRole: {
         type: DataTypes.INTEGER,
         allowNull: true,
+      },
+      isLogged: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
       },
       authProvider: {
         type: DataTypes.STRING,

@@ -8,6 +8,7 @@ const updateUser = async (req, res) => {
     imageUrl,
     password,
     idRole,
+    isLogged,
     authProvider,
     idAuthProvider,
   } = req.body;
@@ -33,6 +34,9 @@ const updateUser = async (req, res) => {
     }
     if (idRole) {
       user.idRole = idRole;
+    }
+    if (isLogged) {
+      user.isLogged = isLogged;
     }
     if (authProvider) {
       user.authProvider = authProvider;
