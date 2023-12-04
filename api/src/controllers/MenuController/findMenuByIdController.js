@@ -1,4 +1,4 @@
-const { Menu, Especialidad, Tipo } = require("../db");
+const { Menu, Especialidad, Tipo } = require("../../db");
 
 const findMenuById = async (id) => {
   try {

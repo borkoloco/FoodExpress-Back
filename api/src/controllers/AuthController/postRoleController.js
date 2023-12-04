@@ -1,4 +1,4 @@
-const { Role } = require("../db");
+const { Role } = require("../../db");
 
 const postRole = async (req, res) => {
   try {

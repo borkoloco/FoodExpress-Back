@@ -1,4 +1,4 @@
-const { Especialidad } = require("../db");
+const { Especialidad } = require("../../db");
 
 async function postEspecialidad(req, res) {
   try {
