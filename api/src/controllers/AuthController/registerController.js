@@ -6,6 +6,12 @@ const registerCtrl = async (req, res) => {
     const { nameUser, email, password, idRole, authProvider, idAuthProvider } =
       req.body;
 
+    if (password.length < 5) {
+      return res
+        .status(400)
+        .json({ error: "El password debe tener al menos 5 caracteres" });
+    }
+
     let registerUser;
 
     if (authProvider && idAuthProvider) {

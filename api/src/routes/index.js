@@ -45,6 +45,7 @@ const {
   updateStatus,
   getReviewsByStatus,
   updateReviewStatus,
+  getAllAvg,
 } = require("../controllers/index");
 
 // Configurar los routers
@@ -89,5 +90,6 @@ router.post("/addstatus", addStatus);
 router.patch("/updatestatus", updateStatus);
 router.get("/getreviewbystatus/:idStatus", getReviewsByStatus);
 router.patch("/updatereviewstatus/:id", updateReviewStatus);
+router.get("/getallavg", getAllAvg);
 
 module.exports = router;

@@ -13,6 +13,7 @@ const getAvgReview = require("./ReviewsController/getAvgReview");
 const getAllStatus = require("./StatusController/getStatus");
 const getStatusById = require("./StatusController/getStatusById");
 const getReviewsByStatus = require("./ReviewsController/getReviewsByStatus");
+const getAllAvg = require("./ReviewsController/getAllAvg");
 //fin gets
 
 //Deletes
@@ -89,4 +90,5 @@ module.exports = {
   updateStatus,
   getReviewsByStatus,
   updateReviewStatus,
+  getAllAvg,
 };
