@@ -1,4 +1,4 @@
-const { Tipo, User } = require("../../db");
+const { Tipo, Menu } = require("../../db");
 
 const deleteTipo2 = async (req, res) => {
   const { id } = req.params;
@@ -12,23 +12,20 @@ const deleteTipo2 = async (req, res) => {
       return res.status(404).send("Tipo no encontrado");
     }
 
-    const usersAsociados = await User.findAll({
-      include: {
-        model: Tipo,
-        where: { id: tipo.id },
-      },
+    const menuAsociado = await Menu.findOne({
+      where: { idTipoMenu: id },
     });
 
-    if (usersAsociados.length > 0) {
+    if (menuAsociado) {
       return res
         .status(403)
-        .send("No puede eliminar este Tipo porque está asociado a un Usuario");
+        .send("No puede eliminar este Tipo porque está asociado a un Menu");
     }
 
     await tipo.destroy();
     res.status(200).send("Tipo eliminado exitosamente");
   } catch (error) {
-    res.status(500).json("Error al eliminar tipo");
+    res.status(500).send("Error al eliminar tipo");
   }
 };
 

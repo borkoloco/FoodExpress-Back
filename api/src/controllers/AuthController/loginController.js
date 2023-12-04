@@ -1,5 +1,5 @@
 const { User } = require("../../db");
-const { compare } = require("../../helpers/bcryptController");
+const { compare } = require("./bcryptController");
 // const { tokenSign } = require("../helpers/generateToken");
 
 const loginCtrl = async (req, res) => {
