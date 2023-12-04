@@ -10,7 +10,12 @@ const getReviewById = require("./ReviewsController/getReviewById");
 const getReviewsByMenu = require("./ReviewsController/getReviewsByMenu");
 const getReviewsByUser = require("./ReviewsController/getReviewsByUser");
 const getAvgReview = require("./ReviewsController/getAvgReview");
-const getCarrito = require("./CarritoController/getCarrito")
+const getCarrito = require("./CarritoController/getCarrito");
+const getAllStatus = require("./StatusController/getStatus");
+const getStatusById = require("./StatusController/getStatusById");
+const getReviewsByStatus = require("./ReviewsController/getReviewsByStatus");
+const getAllAvg = require("./ReviewsController/getAllAvg");
+
 //fin gets
 
 //Deletes
@@ -34,6 +39,7 @@ const sendEmail = require("./EmailController/sendEmail");
 const addReview = require("./ReviewsController/postReview");
 const sendBill = require("./EmailController/sendBill");
 const postCarrito = require("./CarritoController/postCarrito");
+const addStatus = require("./StatusController/addStatus");
 //fin posts
 
 //updates
@@ -43,6 +49,8 @@ const updateMenu = require("./MenuController/updateMenu");
 const updateUser = require("./UserController/updateUser");
 const updateDispMenu = require("./MenuController/updateDispMenu");
 const updateReviewById = require("./ReviewsController/updateReview");
+const updateStatus = require("./StatusController/updateStatus");
+const updateReviewStatus = require("./ReviewsController/updateReviewStatus");
 //fin updates
 
 module.exports = {
@@ -80,5 +88,13 @@ module.exports = {
   updateReviewById,
   getAvgReview,
   postCarrito,
-  getCarrito
+  getCarrito,
+  getAllStatus,
+  getStatusById,
+  addStatus,
+  updateStatus,
+  getReviewsByStatus,
+  updateReviewStatus,
+  getAllAvg,
+
 };

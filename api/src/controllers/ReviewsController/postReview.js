@@ -28,6 +28,7 @@ const addReview = async (req, res) => {
       idMenu: idMenu,
       rate: rate,
       comment: comment,
+      idStatus: 1,
     });
 
     res.status(201).json(newReview);
@@ -37,24 +38,3 @@ const addReview = async (req, res) => {
 };
 
 module.exports = addReview;
-
-// const { Review } = require("../../db"); // Reemplaza './models' con la ruta correcta a tu modelo de Review
-
-// const addReview = async (req, res) => {
-//   const { idUser, idMenu, rate, comment } = req.body;
-
-//   try {
-//     const newReview = await Review.create({
-//       idUser: idUser,
-//       idMenu: idMenu,
-//       rate: rate,
-//       comment: comment,
-//     });
-
-//     res.status(201).json(newReview);
-//   } catch (error) {
-//     res.status(500).json({ error: "No se pudo crear el review" });
-//   }
-// };
-
-// module.exports = addReview;

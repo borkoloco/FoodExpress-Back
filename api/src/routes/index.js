@@ -40,9 +40,15 @@ const {
   getAvgReview,
   sendBill,
   postCarrito,
-  getCarrito
+  getCarrito,
+  getStatusById,
+  getAllStatus,
+  addStatus,
+  updateStatus,
+  getReviewsByStatus,
+  updateReviewStatus,
+  getAllAvg,
 } = require("../controllers/index");
-
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -82,6 +88,12 @@ router.post("/addreview", addReview);
 router.get("/getavgreview/:id", getAvgReview);
 router.get('/getcarrito/:idUser', getCarrito);
 router.post("/carrito/add", postCarrito);
-
+router.get("/getstatusbyid/:id", getStatusById);
+router.get("/getallstatus", getAllStatus);
+router.post("/addstatus", addStatus);
+router.patch("/updatestatus", updateStatus);
+router.get("/getreviewbystatus/:idStatus", getReviewsByStatus);
+router.patch("/updatereviewstatus/:id", updateReviewStatus);
+router.get("/getallavg", getAllAvg);
 
 module.exports = router;
