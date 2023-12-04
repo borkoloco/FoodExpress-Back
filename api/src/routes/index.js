@@ -39,8 +39,13 @@ const {
   updateReviewById,
   getAvgReview,
   sendBill,
+  getStatusById,
+  getAllStatus,
+  addStatus,
+  updateStatus,
+  getReviewsByStatus,
+  updateReviewStatus,
 } = require("../controllers/index");
-
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -78,5 +83,11 @@ router.delete("/deletereview/:id", deleteReviewById);
 router.patch("/updatereview/:id", updateReviewById);
 router.post("/addreview", addReview);
 router.get("/getavgreview/:id", getAvgReview);
+router.get("/getstatusbyid/:id", getStatusById);
+router.get("/getallstatus", getAllStatus);
+router.post("/addstatus", addStatus);
+router.patch("/updatestatus", updateStatus);
+router.get("/getreviewbystatus/:idStatus", getReviewsByStatus);
+router.patch("/updatereviewstatus/:id", updateReviewStatus);
 
 module.exports = router;
