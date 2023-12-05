@@ -10,6 +10,9 @@ const getReviewById = require("./ReviewsController/getReviewById");
 const getReviewsByMenu = require("./ReviewsController/getReviewsByMenu");
 const getReviewsByUser = require("./ReviewsController/getReviewsByUser");
 const getAvgReview = require("./ReviewsController/getAvgReview");
+const successPayment = require("./PaymentController/successPayment");
+const failurePayment = require("./PaymentController/failurePayment");
+const pendingPayment = require("./PaymentController/pendingPayment");
 //fin gets
 
 //Deletes
@@ -22,6 +25,7 @@ const deleteReviewById = require("./ReviewsController/deleteReview");
 //fin deletes
 
 //posts
+const createPaymentLink = require("./PaymentController/createPaymentLink");
 const postEspecialidad = require("./EspecController/postEspecialidad");
 const postTipo = require("./TipoController/postTipo");
 const createMenu = require("./MenuController/createMenuController");
@@ -77,6 +81,10 @@ module.exports = {
   addReview,
   updateReviewById,
   getAvgReview,
+  createPaymentLink,
+  successPayment,
+  failurePayment,
+  pendingPayment,
 };
 
 // comentarios
