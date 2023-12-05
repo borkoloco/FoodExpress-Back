@@ -48,6 +48,13 @@ const {
   getReviewsByStatus,
   updateReviewStatus,
   getAllAvg,
+  postOrden,
+  getOrden,
+  getOrdenByUser,
+  getEnvioByDire,
+  getDireccionByUser,
+  postDireccion,
+  postEnvio,
 } = require("../controllers/index");
 
 // Configurar los routers
@@ -86,7 +93,7 @@ router.delete("/deletereview/:id", deleteReviewById);
 router.patch("/updatereview/:id", updateReviewById);
 router.post("/addreview", addReview);
 router.get("/getavgreview/:id", getAvgReview);
-router.get('/getcarrito/:idUser', getCarrito);
+router.get("/getcarrito/:idUser", getCarrito);
 router.post("/carrito/add", postCarrito);
 router.get("/getstatusbyid/:id", getStatusById);
 router.get("/getallstatus", getAllStatus);
@@ -95,5 +102,12 @@ router.patch("/updatestatus", updateStatus);
 router.get("/getreviewbystatus/:idStatus", getReviewsByStatus);
 router.patch("/updatereviewstatus/:id", updateReviewStatus);
 router.get("/getallavg", getAllAvg);
+router.post("/postorden", postOrden);
+router.get("/getorden", getOrden);
+router.get("/getordenbyuser/:idUser", getOrdenByUser);
+router.get("/getenviobydire/:idDireccion", getEnvioByDire);
+router.get("/getdireccionbyuser/:idUser", getDireccionByUser);
+router.post("/postdireccion", postDireccion);
+router.post("/postenvio", postEnvio);
 
 module.exports = router;

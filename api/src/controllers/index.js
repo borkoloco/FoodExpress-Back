@@ -15,6 +15,10 @@ const getAllStatus = require("./StatusController/getStatus");
 const getStatusById = require("./StatusController/getStatusById");
 const getReviewsByStatus = require("./ReviewsController/getReviewsByStatus");
 const getAllAvg = require("./ReviewsController/getAllAvg");
+const getOrden = require("./OrdenController/getOrden");
+const getOrdenByUser = require("./OrdenController/getOrdenByUser");
+const getEnvioByDire = require("./OrdenController/getEnvioByDire");
+const getDireccionByUser = require("./OrdenController/getDireccionByUser");
 
 //fin gets
 
@@ -40,6 +44,9 @@ const addReview = require("./ReviewsController/postReview");
 const sendBill = require("./EmailController/sendBill");
 const postCarrito = require("./CarritoController/postCarrito");
 const addStatus = require("./StatusController/addStatus");
+const postOrden = require("./OrdenController/postOrden");
+const postDireccion = require("./OrdenController/postDireccion");
+const postEnvio = require("./OrdenController/postEnvio");
 //fin posts
 
 //updates
@@ -96,5 +103,11 @@ module.exports = {
   getReviewsByStatus,
   updateReviewStatus,
   getAllAvg,
-
+  postOrden,
+  getOrden,
+  getOrdenByUser,
+  getEnvioByDire,
+  getDireccionByUser,
+  postDireccion,
+  postEnvio,
 };
