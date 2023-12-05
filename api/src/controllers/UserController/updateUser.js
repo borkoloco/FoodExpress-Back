@@ -1,4 +1,5 @@
 const { User } = require("../../db");
+const { encrypt, compare } = require("../AuthController/bcryptController");
 
 const updateUser = async (req, res) => {
   const { id } = req.params;
@@ -30,7 +31,8 @@ const updateUser = async (req, res) => {
       user.imageUrl = imageUrl;
     }
     if (password) {
-      user.password = password;
+      const passwordHash = await encrypt(password);
+      user.password = passwordHash;
     }
     if (idRole) {
       user.idRole = idRole;

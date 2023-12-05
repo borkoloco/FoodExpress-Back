@@ -7,9 +7,6 @@ const router = Router();
 
 const {
   createPaymentLink,
-  failurePayment,
-  pendingPayment,
-  successPayment,
   getMenu,
   deleteMenu,
   findMenuById,
@@ -43,6 +40,22 @@ const {
   updateReviewById,
   getAvgReview,
   sendBill,
+  postCarrito,
+  getCarrito,
+  getStatusById,
+  getAllStatus,
+  addStatus,
+  updateStatus,
+  getReviewsByStatus,
+  updateReviewStatus,
+  getAllAvg,
+  postOrden,
+  getOrden,
+  getOrdenByUser,
+  getEnvioByDire,
+  getDireccionByUser,
+  postDireccion,
+  postEnvio,
 } = require("../controllers/index");
 
 // Configurar los routers
@@ -60,10 +73,6 @@ router.get("/getreview/:id", getReviewById);
 router.get("/getavgreview/:id", getAvgReview);
 router.get("/getreviewsuser/:idUser", getReviewsByUser);
 router.get("/getreviewsmenu/:idMenu", getReviewsByMenu);
-
-router.get("/failurePayment", failurePayment);
-router.get("/pendingPayment", pendingPayment);
-router.get("/successPayment", successPayment);
 // router.get("/webhook", receiveWebhook);
 
 //------------------ POSTS ---------------------
@@ -95,5 +104,25 @@ router.delete("/deleteespecialidad/:id", deleteEspecialidad);
 router.delete("/deletetipo2/:id", deleteTipo2);
 router.delete("/deleteespec2/:id", deleteEspec2);
 router.delete("/deletereview/:id", deleteReviewById);
+
+router.patch("/updatereview/:id", updateReviewById);
+router.post("/addreview", addReview);
+router.get("/getavgreview/:id", getAvgReview);
+router.get("/getcarrito/:idUser", getCarrito);
+router.post("/carrito/add", postCarrito);
+router.get("/getstatusbyid/:id", getStatusById);
+router.get("/getallstatus", getAllStatus);
+router.post("/addstatus", addStatus);
+router.patch("/updatestatus", updateStatus);
+router.get("/getreviewbystatus/:idStatus", getReviewsByStatus);
+router.patch("/updatereviewstatus/:id", updateReviewStatus);
+router.get("/getallavg", getAllAvg);
+router.post("/postorden", postOrden);
+router.get("/getorden", getOrden);
+router.get("/getordenbyuser/:idUser", getOrdenByUser);
+router.get("/getenviobydire/:idDireccion", getEnvioByDire);
+router.get("/getdireccionbyuser/:idUser", getDireccionByUser);
+router.post("/postdireccion", postDireccion);
+router.post("/postenvio", postEnvio);
 
 module.exports = router;

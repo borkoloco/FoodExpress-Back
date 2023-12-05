@@ -2,7 +2,7 @@ const { Review } = require("../../db"); // Reemplaza './models' con la ruta corr
 
 const updateReviewById = async (req, res) => {
   const { id } = req.params;
-  const { rate, comment } = req.body;
+  const { rate, comment, idStatus } = req.body;
 
   try {
     const reviewToUpdate = await Review.findByPk(id);
@@ -13,6 +13,7 @@ const updateReviewById = async (req, res) => {
 
     reviewToUpdate.rate = rate;
     reviewToUpdate.comment = comment;
+    reviewToUpdate.idStatus = idStatus;
 
     await reviewToUpdate.save();
 

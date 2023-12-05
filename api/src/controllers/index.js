@@ -10,9 +10,16 @@ const getReviewById = require("./ReviewsController/getReviewById");
 const getReviewsByMenu = require("./ReviewsController/getReviewsByMenu");
 const getReviewsByUser = require("./ReviewsController/getReviewsByUser");
 const getAvgReview = require("./ReviewsController/getAvgReview");
-const successPayment = require("./PaymentController/successPayment");
-const failurePayment = require("./PaymentController/failurePayment");
-const pendingPayment = require("./PaymentController/pendingPayment");
+const getCarrito = require("./CarritoController/getCarrito");
+const getAllStatus = require("./StatusController/getStatus");
+const getStatusById = require("./StatusController/getStatusById");
+const getReviewsByStatus = require("./ReviewsController/getReviewsByStatus");
+const getAllAvg = require("./ReviewsController/getAllAvg");
+const getOrden = require("./OrdenController/getOrden");
+const getOrdenByUser = require("./OrdenController/getOrdenByUser");
+const getEnvioByDire = require("./OrdenController/getEnvioByDire");
+const getDireccionByUser = require("./OrdenController/getDireccionByUser");
+
 //fin gets
 
 //Deletes
@@ -36,6 +43,11 @@ const findOrCreateByEmail = require("./UserController/findOrCreateByEmail");
 const sendEmail = require("./EmailController/sendEmail");
 const addReview = require("./ReviewsController/postReview");
 const sendBill = require("./EmailController/sendBill");
+const postCarrito = require("./CarritoController/postCarrito");
+const addStatus = require("./StatusController/addStatus");
+const postOrden = require("./OrdenController/postOrden");
+const postDireccion = require("./OrdenController/postDireccion");
+const postEnvio = require("./OrdenController/postEnvio");
 //fin posts
 
 //updates
@@ -45,6 +57,8 @@ const updateMenu = require("./MenuController/updateMenu");
 const updateUser = require("./UserController/updateUser");
 const updateDispMenu = require("./MenuController/updateDispMenu");
 const updateReviewById = require("./ReviewsController/updateReview");
+const updateStatus = require("./StatusController/updateStatus");
+const updateReviewStatus = require("./ReviewsController/updateReviewStatus");
 //fin updates
 
 module.exports = {
@@ -82,9 +96,22 @@ module.exports = {
   updateReviewById,
   getAvgReview,
   createPaymentLink,
-  successPayment,
-  failurePayment,
-  pendingPayment,
+  postCarrito,
+  getCarrito,
+  getAllStatus,
+  getStatusById,
+  addStatus,
+  updateStatus,
+  getReviewsByStatus,
+  updateReviewStatus,
+  getAllAvg,
+  postOrden,
+  getOrden,
+  getOrdenByUser,
+  getEnvioByDire,
+  getDireccionByUser,
+  postDireccion,
+  postEnvio,
 };
 
 // comentarios
