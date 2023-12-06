@@ -13,3 +13,5 @@ module.exports = {
   encrypt,
   compare,
 };
+
+// const bcrypt = require("bcryptjs");
