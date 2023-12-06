@@ -32,6 +32,7 @@ const deleteReviewById = require("./ReviewsController/deleteReview");
 //fin deletes
 
 //posts
+const createPaymentLink = require("./PaymentController/createPaymentLink");
 const postEspecialidad = require("./EspecController/postEspecialidad");
 const postTipo = require("./TipoController/postTipo");
 const createMenu = require("./MenuController/createMenuController");
@@ -94,6 +95,7 @@ module.exports = {
   addReview,
   updateReviewById,
   getAvgReview,
+  createPaymentLink,
   postCarrito,
   getCarrito,
   getAllStatus,
@@ -111,3 +113,5 @@ module.exports = {
   postDireccion,
   postEnvio,
 };
+
+// comentarios
