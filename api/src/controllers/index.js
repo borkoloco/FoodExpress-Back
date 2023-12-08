@@ -50,6 +50,7 @@ const addStatus = require("./StatusController/addStatus");
 const postOrden = require("./OrdenController/postOrden");
 const postDireccion = require("./OrdenController/postDireccion");
 const postEnvio = require("./OrdenController/postEnvio");
+const receiveWebHook = require("./PaymentController/receiveWebHook");
 //fin posts
 
 //updates
@@ -117,7 +118,8 @@ module.exports = {
   postEnvio,
   updateCantidadCarrito,
   deleteItemCarrito,
-  deleteCarrito
+  deleteCarrito,
+  receiveWebHook
 };
 
 // comentarios

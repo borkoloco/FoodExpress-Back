@@ -58,7 +58,8 @@ const {
   postEnvio,
   updateCantidadCarrito,
   deleteItemCarrito,
-  deleteCarrito
+  deleteCarrito,
+  receiveWebHook
 } = require("../controllers/index");
 
 // Configurar los routers
@@ -80,6 +81,7 @@ router.get("/getreviewsmenu/:idMenu", getReviewsByMenu);
 
 //------------------ POSTS ---------------------
 router.post("/create-payment", createPaymentLink);
+router.post("/webhook",receiveWebHook );
 
 router.post("/addmenu", createMenu);
 router.post("/addtipo", postTipo);
