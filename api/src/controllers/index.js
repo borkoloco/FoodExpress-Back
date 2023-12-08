@@ -29,6 +29,8 @@ const deleteEspec2 = require("./EspecController/deleteEspecNoAsoc");
 const deleteTipo = require("./TipoController/deleteTipoController");
 const deleteTipo2 = require("./TipoController/deleteTipoNoAsociado");
 const deleteReviewById = require("./ReviewsController/deleteReview");
+const deleteItemCarrito = require("./CarritoController/deleteItemCarrito");
+const deleteCarrito= require("./CarritoController/deleteCarrito")
 //fin deletes
 
 //posts
@@ -59,6 +61,7 @@ const updateDispMenu = require("./MenuController/updateDispMenu");
 const updateReviewById = require("./ReviewsController/updateReview");
 const updateStatus = require("./StatusController/updateStatus");
 const updateReviewStatus = require("./ReviewsController/updateReviewStatus");
+const updateCantidadCarrito = require("./CarritoController/updateCantidadCarrito");
 //fin updates
 
 module.exports = {
@@ -112,6 +115,9 @@ module.exports = {
   getDireccionByUser,
   postDireccion,
   postEnvio,
+  updateCantidadCarrito,
+  deleteItemCarrito,
+  deleteCarrito
 };
 
 // comentarios
