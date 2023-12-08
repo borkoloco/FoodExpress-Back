@@ -17,8 +17,9 @@ const getReviewsByStatus = require("./ReviewsController/getReviewsByStatus");
 const getAllAvg = require("./ReviewsController/getAllAvg");
 const getOrden = require("./OrdenController/getOrden");
 const getOrdenByUser = require("./OrdenController/getOrdenByUser");
-const getEnvioByDire = require("./OrdenController/getEnvioByDire");
-const getDireccionByUser = require("./OrdenController/getDireccionByUser");
+const getEnvioByDire = require("./EnvioController/getEnvioByDire");
+const getDireccionByUser = require("./EnvioController/getDireccionByUser");
+const getOrdenCarrito = require("./OrdenController/getOrdenCarrito");
 
 //fin gets
 
@@ -30,7 +31,7 @@ const deleteTipo = require("./TipoController/deleteTipoController");
 const deleteTipo2 = require("./TipoController/deleteTipoNoAsociado");
 const deleteReviewById = require("./ReviewsController/deleteReview");
 const deleteItemCarrito = require("./CarritoController/deleteItemCarrito");
-const deleteCarrito= require("./CarritoController/deleteCarrito")
+const deleteCarrito = require("./CarritoController/deleteCarrito");
 //fin deletes
 
 //posts
@@ -48,8 +49,9 @@ const sendBill = require("./EmailController/sendBill");
 const postCarrito = require("./CarritoController/postCarrito");
 const addStatus = require("./StatusController/addStatus");
 const postOrden = require("./OrdenController/postOrden");
-const postDireccion = require("./OrdenController/postDireccion");
-const postEnvio = require("./OrdenController/postEnvio");
+const postDireccion = require("./EnvioController/postDireccion");
+const postEnvio = require("./EnvioController/postEnvio");
+const postOrdenCarrito = require("./OrdenController/postOrdenCarrito");
 const receiveWebHook = require("./PaymentController/receiveWebHook");
 //fin posts
 
@@ -119,7 +121,9 @@ module.exports = {
   updateCantidadCarrito,
   deleteItemCarrito,
   deleteCarrito,
-  receiveWebHook
+  receiveWebHook,
+  getOrdenCarrito,
+  postOrdenCarrito,
 };
 
 // comentarios

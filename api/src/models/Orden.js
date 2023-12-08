@@ -18,12 +18,16 @@ module.exports = (sequelize) => {
       // },
       idEnvio: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
       },
-      // total: {
-      //   type: DataTypes.DECIMAL(10, 2),
-      //   allowNull: true,
-      // },
+      items: {
+        type: DataTypes.JSONB,
+        allowNull: true,
+      },
+      total: {
+        type: DataTypes.DECIMAL(10, 2),
+        allowNull: true,
+      },
       metodoDeCompra: {
         type: DataTypes.STRING,
         allowNull: false,

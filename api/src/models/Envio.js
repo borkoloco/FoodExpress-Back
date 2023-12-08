@@ -11,7 +11,7 @@ module.exports = (sequelize) => {
       },
       costoEnvio: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       statusEnvio: {
         type: DataTypes.STRING,

@@ -4,7 +4,10 @@ const getReviewsByMenu = async (req, res) => {
   const { idMenu } = req.params;
 
   try {
-    const menuReviews = await Review.findAll({ where: { idMenu: idMenu } });
+    const menuReviews = await Review.findAll({
+      where: { idMenu: idMenu },
+      order: [["date", "DESC"]],
+    });
 
     if (!menuReviews || menuReviews.length === 0) {
       return res

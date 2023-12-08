@@ -59,7 +59,9 @@ const {
   updateCantidadCarrito,
   deleteItemCarrito,
   deleteCarrito,
-  receiveWebHook
+  receiveWebHook,
+  postOrdenCarrito,
+  getOrdenCarrito,
 } = require("../controllers/index");
 
 // Configurar los routers
@@ -77,12 +79,21 @@ router.get("/getreview/:id", getReviewById);
 router.get("/getavgreview/:id", getAvgReview);
 router.get("/getreviewsuser/:idUser", getReviewsByUser);
 router.get("/getreviewsmenu/:idMenu", getReviewsByMenu);
+router.get("/getcarrito/:idUser", getCarrito);
+router.get("/getstatusbyid/:id", getStatusById);
+router.get("/getallstatus", getAllStatus);
+router.get("/getorden", getOrden);
+router.get("/getordencarrito/:idUser", getOrdenCarrito);
+router.get("/getordenbyuser/:idUser", getOrdenByUser);
+router.get("/getenviobydire/:idDireccion", getEnvioByDire);
+router.get("/getdireccionbyuser/:idUser", getDireccionByUser);
+router.get("/getreviewbystatus/:idStatus", getReviewsByStatus);
+router.get("/getallavg", getAllAvg);
 // router.get("/webhook", receiveWebhook);
 
 //------------------ POSTS ---------------------
 router.post("/create-payment", createPaymentLink);
-router.post("/webhook",receiveWebHook );
-
+router.post("/webhook", receiveWebHook);
 router.post("/addmenu", createMenu);
 router.post("/addtipo", postTipo);
 router.post("/addespecialidad", postEspecialidad);
@@ -91,11 +102,16 @@ router.post("/register", registerCtrl);
 router.post("/addrole", postRole);
 router.post("/findorcreatebyemail", findOrCreateByEmail);
 router.post("/sendEmail", sendEmail);
-router.post("/addreview", addReview);
 router.post("/sendBill", sendBill);
-
+router.post("/postordencarrito", postOrdenCarrito);
+router.post("/addreview", addReview);
+router.post("/carrito/add", postCarrito);
+router.post("/addstatus", addStatus);
+router.post("/postdireccion", postDireccion);
+router.post("/postenvio", postEnvio);
+router.post("/postorden", postOrden);
 //------------------ PATCH ---------------------
-router.patch("/menu/:id", deleteMenu);
+
 router.patch("/updatetipo/:id", updateTipo);
 router.patch("/updateespecialidad/:idEspecialidad", updateEspecialidad);
 router.patch("/updatemenu/:id", updateMenu);
@@ -103,8 +119,8 @@ router.patch("/updateuser/:id", updateUser);
 router.patch("/updatedispmenu/:id", updateDispMenu);
 router.patch("/updatereview/:id", updateReviewById);
 router.patch("/carrito/update/:idCarrito", updateCantidadCarrito);
-
-
+router.patch("/updatestatus", updateStatus);
+router.patch("/updatereviewstatus/:id", updateReviewStatus);
 //---------------- DELETE --------------------
 router.delete("/deletetipo/:id", deleteTipo);
 router.delete("/deleteespecialidad/:id", deleteEspecialidad);
@@ -112,26 +128,7 @@ router.delete("/deletetipo2/:id", deleteTipo2);
 router.delete("/deleteespec2/:id", deleteEspec2);
 router.delete("/deletereview/:id", deleteReviewById);
 router.delete("/carrito/delete/:idCarrito", deleteItemCarrito);
-router.delete("/carrito/deleteall/:idUser", deleteCarrito)
-
-router.patch("/updatereview/:id", updateReviewById);
-router.post("/addreview", addReview);
-router.get("/getavgreview/:id", getAvgReview);
-router.get("/getcarrito/:idUser", getCarrito);
-router.post("/carrito/add", postCarrito);
-router.get("/getstatusbyid/:id", getStatusById);
-router.get("/getallstatus", getAllStatus);
-router.post("/addstatus", addStatus);
-router.patch("/updatestatus", updateStatus);
-router.get("/getreviewbystatus/:idStatus", getReviewsByStatus);
-router.patch("/updatereviewstatus/:id", updateReviewStatus);
-router.get("/getallavg", getAllAvg);
-router.post("/postorden", postOrden);
-router.get("/getorden", getOrden);
-router.get("/getordenbyuser/:idUser", getOrdenByUser);
-router.get("/getenviobydire/:idDireccion", getEnvioByDire);
-router.get("/getdireccionbyuser/:idUser", getDireccionByUser);
-router.post("/postdireccion", postDireccion);
-router.post("/postenvio", postEnvio);
+router.delete("/carrito/deleteall/:idUser", deleteCarrito);
+router.delete("/menu/:id", deleteMenu);
 
 module.exports = router;
