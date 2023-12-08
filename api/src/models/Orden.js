@@ -12,18 +12,18 @@ module.exports = (sequelize) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      idDireccion: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
+      // idDireccion: {
+      //   type: DataTypes.INTEGER,
+      //   allowNull: true,
+      // },
       idEnvio: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      total: {
-        type: DataTypes.DECIMAL(10, 2),
-        allowNull: false,
-      },
+      // total: {
+      //   type: DataTypes.DECIMAL(10, 2),
+      //   allowNull: true,
+      // },
       metodoDeCompra: {
         type: DataTypes.STRING,
         allowNull: false,
