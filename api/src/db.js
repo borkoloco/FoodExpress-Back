@@ -90,19 +90,38 @@ Review.belongsTo(Status, {
   as: "reviewStatus",
 });
 
+//invertir ...has many reviews
+
 Carrito.belongsTo(User, { foreignKey: "idUser", as: "user" });
 Carrito.belongsTo(Menu, { foreignKey: "idMenu", as: "menu" });
+
+// Carrito.belongsTo(User, { foreignKey: 'idUser' });
+// Carrito.belongsTo(Menu, { foreignKey: 'idMenu' });
 
 Orden.belongsTo(User, { foreignKey: "idUser", as: "user" });
 Orden.belongsTo(Menu, { foreignKey: "idMenu", as: "menu" });
 
+// Orden.belongsToMany(Menu, { through: OrdenMenu, foreignKey: 'idOrden' });
+// Menu.belongsToMany(Orden, { through: OrdenMenu, foreignKey: 'idMenu' });
+
 Orden.belongsTo(Direccion, { foreignKey: "idDireccion", as: "direccion" });
 
-Orden.belongsTo(Envio, { foreignKey: "idEnvio", as: "envio" });
-
-// Envio.belongsTo(Direccion, { foreignKey: "idDireccion", as: "direccion" });
+Envio.belongsTo(Orden, { foreignKey: "idEnvio", as: "envio" });
 
 User.belongsTo(Direccion, { foreignKey: "idDireccion", as: "direccion" });
+
+// Orden.belongsTo(User, { foreignKey: 'idUser' });
+// Orden.belongsToMany(Menu, { through: 'OrdenMenu', foreignKey: 'idOrden' });
+
+// User.hasMany(Carrito, { foreignKey: 'idUser' });
+// User.hasMany(Orden, { foreignKey: 'idUser' });
+
+//los de orden estan al reves?
+
+//envio debe tener id orden?
+
+// Envio.belongsTo(Direccion, { foreignKey: "idDireccion", as: "direccion" });
+//este no va
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
