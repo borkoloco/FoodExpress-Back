@@ -111,7 +111,7 @@ router.post("/postdireccion", postDireccion);
 router.post("/postenvio", postEnvio);
 router.post("/postorden", postOrden);
 //------------------ PATCH ---------------------
-
+router.patch("/menu/:id", deleteMenu);
 router.patch("/updatetipo/:id", updateTipo);
 router.patch("/updateespecialidad/:idEspecialidad", updateEspecialidad);
 router.patch("/updatemenu/:id", updateMenu);
@@ -129,6 +129,5 @@ router.delete("/deleteespec2/:id", deleteEspec2);
 router.delete("/deletereview/:id", deleteReviewById);
 router.delete("/carrito/delete/:idCarrito", deleteItemCarrito);
 router.delete("/carrito/deleteall/:idUser", deleteCarrito);
-router.delete("/menu/:id", deleteMenu);
 
 module.exports = router;
