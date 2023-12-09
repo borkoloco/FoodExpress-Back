@@ -1,28 +1,34 @@
+// En tu archivo de controladores (controllers/index.js)
 const { Carrito } = require('../../db');
 
-async function updateCantidadCarrito(req, res) {
+async function updateItemCarrito(req, res) {
   try {
-    const { idCarrito } = req.params;
-    const { nuevaCantidad } = req.body;
+    const { idUser, idMenu } = req.params;
+    const { cantidad } = req.body;
 
-
-    // Actualizar la cantidad en el carrito
-    const carritoItem = await Carrito.findByPk(idCarrito);
+    // Verificar si el usuario tiene el ítem en el carrito
+    const carritoItem = await Carrito.findOne({
+      where: {
+        idUser,
+        idMenu,
+      },
+    });
 
     if (!carritoItem) {
-      return res.status(404).json({ error: 'Elemento del carrito no encontrado' });
+      return res.status(404).json({ error: 'Elemento del carrito no encontrado para el usuario' });
     }
 
-    carritoItem.cantidad = nuevaCantidad;
-    carritoItem.subtotal = carritoItem.precio * nuevaCantidad;
+    // Actualizar la cantidad del ítem en el carrito
+    await carritoItem.update({
+      cantidad,
+      subtotal: cantidad * carritoItem.price, // Actualizar subtotal si es necesario
+    });
 
-    await carritoItem.save();
-
-    res.status(200).json({ message: 'Cantidad actualizada exitosamente', carritoItem });
+    res.status(200).json({ message: 'Elemento del carrito actualizado exitosamente' });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Error al actualizar la cantidad en el carrito' });
+    res.status(500).json({ error: 'Error al actualizar el elemento del carrito' });
   }
 }
 
-module.exports = updateCantidadCarrito ;
+module.exports = updateItemCarrito ;

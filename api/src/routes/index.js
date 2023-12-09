@@ -118,7 +118,7 @@ router.patch("/updatemenu/:id", updateMenu);
 router.patch("/updateuser/:id", updateUser);
 router.patch("/updatedispmenu/:id", updateDispMenu);
 router.patch("/updatereview/:id", updateReviewById);
-router.patch("/carrito/update/:idCarrito", updateCantidadCarrito);
+router.patch("/carrito/update/:idUser/:idMenu", updateCantidadCarrito);
 router.patch("/updatestatus", updateStatus);
 router.patch("/updatereviewstatus/:id", updateReviewStatus);
 //---------------- DELETE --------------------
@@ -127,7 +127,7 @@ router.delete("/deleteespecialidad/:id", deleteEspecialidad);
 router.delete("/deletetipo2/:id", deleteTipo2);
 router.delete("/deleteespec2/:id", deleteEspec2);
 router.delete("/deletereview/:id", deleteReviewById);
-router.delete("/carrito/delete/:idCarrito", deleteItemCarrito);
+router.delete("/carrito/delete/:idUser/:idMenu", deleteItemCarrito);
 router.delete("/carrito/deleteall/:idUser", deleteCarrito);
 
 module.exports = router;
