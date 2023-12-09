@@ -32,6 +32,7 @@ const deleteTipo2 = require("./TipoController/deleteTipoNoAsociado");
 const deleteReviewById = require("./ReviewsController/deleteReview");
 const deleteItemCarrito = require("./CarritoController/deleteItemCarrito");
 const deleteCarrito = require("./CarritoController/deleteCarrito");
+const deleteDiresByUser = require("./EnvioController/deleteDiresByUser");
 //fin deletes
 
 //posts
@@ -124,6 +125,7 @@ module.exports = {
   receiveWebHook,
   getOrdenCarrito,
   postOrdenCarrito,
+  deleteDiresByUser,
 };
 
 // comentarios

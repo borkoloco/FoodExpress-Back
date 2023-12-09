@@ -13,7 +13,7 @@ module.exports = (sequelize) => {
       statusDescription: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
+        // unique: true,
       },
     },
     { timestamps: false }

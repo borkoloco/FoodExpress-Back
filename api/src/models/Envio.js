@@ -19,7 +19,7 @@ module.exports = (sequelize) => {
       },
       idDireccion: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
       },
     },
     { timestamps: false }
