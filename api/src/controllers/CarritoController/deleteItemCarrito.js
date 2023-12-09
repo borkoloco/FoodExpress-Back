@@ -1,13 +1,20 @@
+// En tu archivo de controladores (controllers/index.js)
 const { Carrito } = require('../../db');
 
 async function deleteItemCarrito(req, res) {
   try {
-    const { idCarrito } = req.params;
+    const { idUser, idMenu } = req.params;
 
-    const carritoItem = await Carrito.findByPk(idCarrito);
+    // Verificar si el usuario tiene el ítem en el carrito
+    const carritoItem = await Carrito.findOne({
+      where: {
+        idUser,
+        idMenu,
+      },
+    });
 
     if (!carritoItem) {
-      return res.status(404).json({ error: 'Elemento del carrito no encontrado' });
+      return res.status(404).json({ error: 'Elemento del carrito no encontrado para el usuario' });
     }
 
     await carritoItem.destroy();
@@ -19,4 +26,4 @@ async function deleteItemCarrito(req, res) {
   }
 }
 
-module.exports = deleteItemCarrito;
+module.exports = deleteItemCarrito ;
