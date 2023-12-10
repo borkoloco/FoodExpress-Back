@@ -63,6 +63,8 @@ const {
   postOrdenCarrito,
   getOrdenCarrito,
   deleteDiresByUser,
+  updateDireById,
+  deleteDireById,
 } = require("../controllers/index");
 
 // Configurar los routers
@@ -122,6 +124,7 @@ router.patch("/updatereview/:id", updateReviewById);
 router.patch("/carrito/update/:idUser/:idMenu", updateCantidadCarrito);
 router.patch("/updatestatus", updateStatus);
 router.patch("/updatereviewstatus/:id", updateReviewStatus);
+router.patch("/updatedirebyid/:idUser/:idDireccion", updateDireById);
 //---------------- DELETE --------------------
 router.delete("/deletetipo/:id", deleteTipo);
 router.delete("/deleteespecialidad/:id", deleteEspecialidad);
@@ -131,5 +134,6 @@ router.delete("/deletereview/:id", deleteReviewById);
 router.delete("/carrito/delete/:idUser/:idMenu", deleteItemCarrito);
 router.delete("/carrito/deleteall/:idUser", deleteCarrito);
 router.delete("/deletedires/:idUser", deleteDiresByUser);
+router.delete("/deletedirebyid/:idUser/:idDireccion", deleteDireById);
 
 module.exports = router;

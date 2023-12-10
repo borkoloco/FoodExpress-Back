@@ -33,6 +33,7 @@ const deleteReviewById = require("./ReviewsController/deleteReview");
 const deleteItemCarrito = require("./CarritoController/deleteItemCarrito");
 const deleteCarrito = require("./CarritoController/deleteCarrito");
 const deleteDiresByUser = require("./EnvioController/deleteDiresByUser");
+const deleteDireById = require("./EnvioController/deleteDireById");
 //fin deletes
 
 //posts
@@ -66,6 +67,7 @@ const updateReviewById = require("./ReviewsController/updateReview");
 const updateStatus = require("./StatusController/updateStatus");
 const updateReviewStatus = require("./ReviewsController/updateReviewStatus");
 const updateCantidadCarrito = require("./CarritoController/updateCantidadCarrito");
+const updateDireById = require("./EnvioController/updateDireById");
 //fin updates
 
 module.exports = {
@@ -126,6 +128,8 @@ module.exports = {
   getOrdenCarrito,
   postOrdenCarrito,
   deleteDiresByUser,
+  deleteDireById,
+  updateDireById,
 };
 
 // comentarios
