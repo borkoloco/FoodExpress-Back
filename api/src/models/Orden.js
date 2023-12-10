@@ -32,6 +32,14 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      // status: {
+      //   type: DataTypes.ENUM(
+      //     "Pending",
+      //     "Aprobada",
+      //     "Rechazada",
+      //   ),
+      //   defaultValue: "Pending",
+      // },
       fechaCompra: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,

@@ -62,6 +62,7 @@ const {
   receiveWebHook,
   postOrdenCarrito,
   getOrdenCarrito,
+  deleteDiresByUser,
 } = require("../controllers/index");
 
 // Configurar los routers
@@ -129,5 +130,6 @@ router.delete("/deleteespec2/:id", deleteEspec2);
 router.delete("/deletereview/:id", deleteReviewById);
 router.delete("/carrito/delete/:idUser/:idMenu", deleteItemCarrito);
 router.delete("/carrito/deleteall/:idUser", deleteCarrito);
+router.delete("/deletedires/:idUser", deleteDiresByUser);
 
 module.exports = router;
