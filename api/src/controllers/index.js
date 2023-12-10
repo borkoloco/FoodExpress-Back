@@ -68,6 +68,7 @@ const updateStatus = require("./StatusController/updateStatus");
 const updateReviewStatus = require("./ReviewsController/updateReviewStatus");
 const updateCantidadCarrito = require("./CarritoController/updateCantidadCarrito");
 const updateDireById = require("./EnvioController/updateDireById");
+const updatePassword = require("./UserController/updatePassword");
 //fin updates
 
 module.exports = {
@@ -130,6 +131,7 @@ module.exports = {
   deleteDiresByUser,
   deleteDireById,
   updateDireById,
+  updatePassword,
 };
 
 // comentarios
