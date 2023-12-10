@@ -19,10 +19,20 @@ async function updateItemCarrito(req, res) {
     }
 
     // Actualizar la cantidad del ítem en el carrito
-    await carritoItem.update({
-      cantidad,
-      subtotal: cantidad * carritoItem.price, // Actualizar subtotal si es necesario
-    });
+    if (cantidad > 0) {
+      await carritoItem.update({
+        cantidad,
+        subtotal: cantidad * carritoItem.price, // Actualizar subtotal si es necesario
+      });
+    }
+
+    if (cantidad === 0) {
+      await carritoItem.destroy({
+        where: {
+          idUser,
+          idMenu,
+      }})
+    }
 
     res.status(200).json({ message: 'Elemento del carrito actualizado exitosamente' });
   } catch (error) {
