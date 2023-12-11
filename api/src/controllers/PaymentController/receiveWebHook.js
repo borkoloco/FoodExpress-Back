@@ -8,6 +8,7 @@ const receiveWebHook = async (req, res) => {
   try {
     if (payment.type === "payment") {
       const data = await mercadopago.payment.findById(payment["data.id"]);
+      console.log(data.response);
       console.log("console.log de data.status", data.response.status);
       console.log("ID user:", data.response.metadata);
       console.log("ID'MENU:", data.response.additional_info.items);
@@ -35,6 +36,7 @@ const receiveWebHook = async (req, res) => {
             precio: carritoItem.precio,
             subtotal: carritoItem.subtotal,
             fecha_de_compra: data.response.date_created,
+            metodo_de_compra: data.response.payment_type_id,
             estado: "Approved",
           });
 
@@ -70,6 +72,7 @@ const receiveWebHook = async (req, res) => {
             precio: carritoItem.precio,
             subtotal: carritoItem.subtotal,
             fecha_de_compra: data.response.date_created,
+            metodo_de_compra: data.response.payment_type_id,
             estado: "Rejected",
           });
         }
