@@ -73,8 +73,22 @@ User.belongsTo(Role, {
   as: "roleUser",
 });
 
-User.belongsToMany(Menu, { through: "orden" });
-Menu.belongsToMany(User, { through: "orden" });
+User.belongsToMany(Menu, {
+  through: "orden",
+  as: "userOrdenMenu",
+  foreignKey: "idUser", // Especifica el nombre de la clave foránea en la tabla intermedia
+  otherKey: "idMenu", // Especifica el nombre de la otra clave foránea en la tabla intermedia
+});
+
+Menu.belongsToMany(User, {
+  through: "orden",
+  as: "menuOrdenUser",
+  foreignKey: "idMenu", // Especifica el nombre de la clave foránea en la tabla intermedia
+  otherKey: "idUser", // Especifica el nombre de la otra clave foránea en la tabla intermedia
+});
+
+// User.belongsToMany(Menu, { through: "orden" });
+// Menu.belongsToMany(User, { through: "orden" });
 
 Review.belongsTo(Menu, {
   foreignKey: "idMenu",
@@ -98,17 +112,20 @@ Carrito.belongsTo(Menu, { foreignKey: "idMenu", as: "menu" });
 // Carrito.belongsTo(User, { foreignKey: 'idUser' });
 // Carrito.belongsTo(Menu, { foreignKey: 'idMenu' });
 
-Orden.belongsTo(User, { foreignKey: "idUser", as: "user" });
-Orden.belongsTo(Menu, { foreignKey: "idMenu", as: "menu" });
+// Orden.belongsTo(User, { foreignKey: "idUser", as: "user" });
+// Orden.belongsTo(Menu, { foreignKey: "idMenu", as: "menu" });
 
 // Orden.belongsToMany(Menu, { through: OrdenMenu, foreignKey: 'idOrden' });
 // Menu.belongsToMany(Orden, { through: OrdenMenu, foreignKey: 'idMenu' });
 
-Orden.belongsTo(Direccion, { foreignKey: "idDireccion", as: "direccion" });
+// Orden.belongsTo(Direccion, { foreignKey: "idDireccion", as: "direccion" });
 
-Envio.belongsTo(Orden, { foreignKey: "idEnvio", as: "envio" });
+// Envio.belongsTo(Orden, { foreignKey: "idEnvio", as: "envio" });
 
-User.belongsTo(Direccion, { foreignKey: "idDireccion", as: "direccion" });
+// User.belongsTo(Direccion, { foreignKey: "idDireccion", as: "direccion" });
+
+// Definir la relación de uno a uno con la tabla Direccion
+Direccion.hasOne(User, { foreignKey: "idDireccion" });
 
 // Orden.belongsTo(User, { foreignKey: 'idUser' });
 // Orden.belongsToMany(Menu, { through: 'OrdenMenu', foreignKey: 'idOrden' });
