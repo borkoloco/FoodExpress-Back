@@ -28,14 +28,15 @@ const createPaymentLink = async (req, res) => {
         pending: "http://localhost:3000/pendingPayment",
       },
 
-      notification_url:"https://foodexpress-back-production.up.railway.app/webhook",
-      
+      notification_url:
+        "https://4339-2803-9800-9897-6c92-8818-e4de-5ab4-6729.ngrok.io/webhook",
+
       // notification_url:"https://1560-2001-1388-35a3-fed0-a7dd-773-887f-a99d.ngrok.io/webhook",
       // auto_return: "approved",
     };
 
     const response = await mercadopago.preferences.create(preference);
-    console.log(response);
+    console.log(response.response.init_point);
     res.status(200).json(response.response.init_point);
   } catch (error) {
     console.log(error);
@@ -43,9 +44,4 @@ const createPaymentLink = async (req, res) => {
   }
 };
 
-
 module.exports = createPaymentLink;
-
-
-
-
