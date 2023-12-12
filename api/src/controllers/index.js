@@ -20,6 +20,7 @@ const getOrdenByUser = require("./OrdenController/getOrdenByUser");
 const getEnvioByDire = require("./DireController/getEnvioByDire");
 const getDireccionByUser = require("./DireController/getDireccionByUser");
 const getOrdenCarrito = require("./OrdenController/getOrdenCarrito");
+const getOrdenByUserByDate = require("./OrdenController/getOrdenByUserByDate");
 
 //fin gets
 
@@ -132,6 +133,7 @@ module.exports = {
   deleteDireById,
   updateDireById,
   updatePassword,
+  getOrdenByUserByDate,
 };
 
 // comentarios
