@@ -10,9 +10,7 @@ const getOrdenByUserByDate = async (req, res) => {
     });
 
     if (!ordenes || ordenes.length === 0) {
-      return res
-        .status(404)
-        .json({ message: "No se encontraron órdenes para este usuario" });
+      return res.status(200).json([]);
     }
 
     const groupedOrders = [];
