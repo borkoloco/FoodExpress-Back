@@ -27,12 +27,14 @@ const createPaymentLink = async (req, res) => {
 
       metadata: {
         user_id: sesion.idUser,
+        address: sesion.address,
+        note: sesion.note,
       },
 
       back_urls: {
-        success: "http://localhost:3000/successPayment",
-        failure: "http://localhost:3000/failurePayment",
-        pending: "http://localhost:3000/pendingPayment",
+        success: "http://localhost:5173/success",
+        failure: "http://localhost:5173/failure",
+        pending: "http://localhost:5173/pending",
       },
 
       // notification_url:"https://foodexpress-back-production.up.railway.app/webhook",

@@ -22,6 +22,7 @@ const getDireccionByUser = require("./DireController/getDireccionByUser");
 const getOrdenCarrito = require("./OrdenController/getOrdenCarrito");
 const getOrdenByUserByDate = require("./OrdenController/getOrdenByUserByDate");
 const getOrdenByUserByDate2 = require("./OrdenController/getOrdenByUserByDate2");
+const getUsersBanned = require("./UserController/getUsersBanned");
 
 //fin gets
 
@@ -71,6 +72,7 @@ const updateReviewStatus = require("./ReviewsController/updateReviewStatus");
 const updateCantidadCarrito = require("./CarritoController/updateCantidadCarrito");
 const updateDireById = require("./DireController/updateDireById");
 const updatePassword = require("./UserController/updatePassword");
+const updateBanned = require("./UserController/updateBanned");
 //fin updates
 
 module.exports = {
@@ -136,6 +138,8 @@ module.exports = {
   updatePassword,
   getOrdenByUserByDate,
   getOrdenByUserByDate2,
+  getUsersBanned,
+  updateBanned,
 };
 
 // comentarios

@@ -41,6 +41,8 @@ const receiveWebHook = async (req, res) => {
             subtotal: carritoItem.subtotal,
             fecha_de_compra: data.response.date_created,
             metodo_de_compra: data.response.payment_type_id,
+            direccion: data.response.metadata.address,
+            nota: data.response.metadata.note,
             estado: "Approved",
           });
 
@@ -80,6 +82,8 @@ const receiveWebHook = async (req, res) => {
             subtotal: carritoItem.subtotal,
             fecha_de_compra: data.response.date_created,
             metodo_de_compra: data.response.payment_type_id,
+            direccion: data.response.metadata.address,
+            nota: data.response.metadata.note,
             estado: "Rejected",
           });
 

@@ -68,6 +68,8 @@ const {
   updatePassword,
   getOrdenByUserByDate,
   getOrdenByUserByDate2,
+  getUsersBanned,
+  updateBanned,
 } = require("../controllers/index");
 
 // Configurar los routers
@@ -97,6 +99,7 @@ router.get("/getreviewbystatus/:idStatus", getReviewsByStatus);
 router.get("/getallavg", getAllAvg);
 router.get("/getordenbyuserbydate/:idUser", getOrdenByUserByDate);
 router.get("/getordenbyuserbydate2/:idUser", getOrdenByUserByDate2);
+router.get("/getusersbanned", getUsersBanned);
 // router.get("/webhook", receiveWebhook);
 
 //------------------ POSTS ---------------------
@@ -131,6 +134,7 @@ router.patch("/updatestatus", updateStatus);
 router.patch("/updatereviewstatus/:id", updateReviewStatus);
 router.patch("/updatedirebyid/:idUser/:idDireccion", updateDireById);
 router.patch("/updatepassword/:idUser", updatePassword);
+router.patch("/updatebanned/:idUser", updateBanned);
 //---------------- DELETE --------------------
 router.delete("/deletetipo/:id", deleteTipo);
 router.delete("/deleteespecialidad/:id", deleteEspecialidad);
