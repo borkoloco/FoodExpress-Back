@@ -1,24 +1,19 @@
-const { User, Role } = require("../../db");
+const { User } = require("../../db");
+const { Sequelize } = require("sequelize");
 
 const getUsersBanned = async (req, res) => {
   try {
-    const usersWithoutAdminRole = await User.findAll({
-      include: [
-        {
-          model: Role,
-          where: {
-            nameRole: {
-              [Sequelize.Op.notILike]: "%admin%",
-            },
-          },
-          required: false,
+    const users = await User.findAll({
+      where: {
+        idRole: {
+          [Sequelize.Op.not]: 2,
         },
-      ],
+      },
       order: [["email", "ASC"]],
       attributes: ["idUser", "nameUser", "isBanned", "email"],
     });
 
-    res.status(200).json(usersWithoutAdminRole);
+    res.status(200).json(users);
   } catch (error) {
     res
       .status(500)
