@@ -39,7 +39,7 @@ const createPaymentLink = async (req, res) => {
 
       //aca debe ir la direccion que se recibe en el ngrok y reemplazarla
 
-      notification_url: "https://a101-181-110-92-145.ngrok.io/webhook",
+      notification_url: "https://e2ff-181-110-92-145.ngrok.io/webhook",
       // auto_return: "approved",
     };
 
