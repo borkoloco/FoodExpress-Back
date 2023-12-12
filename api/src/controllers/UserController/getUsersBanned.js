@@ -15,7 +15,7 @@ const getUsersBanned = async (req, res) => {
         },
       ],
       order: [["email", "ASC"]],
-      attributes: ["nameUser", "isBanned", "email"],
+      attributes: ["idUser", "nameUser", "isBanned", "email"],
     });
 
     res.status(200).json(usersWithoutAdminRole);
