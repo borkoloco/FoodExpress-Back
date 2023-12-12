@@ -13,6 +13,10 @@ const receiveWebHook = async (req, res) => {
       console.log("ID user:", data.response.metadata);
       console.log("ID'MENU:", data.response.additional_info.items);
 
+      const paymentInfo = data.response.payment_method;
+      const payerInfo = data.response.payer;
+      const orderInfo = data.response.order;
+
       // Verificar el estado y realizar acciones correspondientes
       if (data.response.status === "approved") {
         // Iterar sobre los elementos del carrito
@@ -48,8 +52,11 @@ const receiveWebHook = async (req, res) => {
             },
           });
         }
+        webhookResponse = { paymentInfo, payerInfo, orderInfo }; // para recuperar la data
 
-        res.status(204).send("Webhook hizo su trabajo");
+        // res.status(204).send("Webhook hizo su trabajo");
+
+        res.status(204).json(webhookResponse); // para enviar la data
       } else if (data.response.status === "rejected") {
         // Iterar sobre los elementos del carrito
         for (const item of data.response.additional_info.items) {
@@ -75,9 +82,21 @@ const receiveWebHook = async (req, res) => {
             metodo_de_compra: data.response.payment_type_id,
             estado: "Rejected",
           });
+
+          // Eliminar registros del carrito
+          await Carrito.destroy({
+            where: {
+              idUser: data.response.metadata.user_id,
+              idMenu: idMenu,
+            },
+          });
         }
 
-        res.status(204).send("Webhook hizo su trabajo");
+        webhookResponse = { paymentInfo, payerInfo, orderInfo }; // recupera la data
+
+        // res.status(204).send("Webhook hizo su trabajo");
+
+        res.status(204).json(webhookResponse); //envia la data
       } else {
         res.status(400).send("Tipo de pago no válido");
       }
@@ -89,6 +108,23 @@ const receiveWebHook = async (req, res) => {
 };
 
 module.exports = receiveWebHook;
+
+// fetch('/ruta-de-tu-controlador')
+//   .then(response => {
+//     if (!response.ok) {
+//       throw new Error('Network response was not ok');
+//     }
+//     return response.json();
+//   })
+//   .then(data => {
+//
+//     console.log(data.paymentMethod);
+//     console.log(data.payerInfo);
+//     console.log(data.orderInfo);
+//   })
+//   .catch(error => {
+//     console.error('There has been a problem with your fetch operation:', error);
+//   });
 
 // const mercadopago = require("mercadopago");
 // const { Carrito, Orden, Menu, User } = require("../../db");

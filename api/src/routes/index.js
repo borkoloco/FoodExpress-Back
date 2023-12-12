@@ -67,6 +67,7 @@ const {
   deleteDireById,
   updatePassword,
   getOrdenByUserByDate,
+  getOrdenByUserByDate2,
 } = require("../controllers/index");
 
 // Configurar los routers
@@ -95,6 +96,7 @@ router.get("/getdireccionbyuser/:idUser", getDireccionByUser);
 router.get("/getreviewbystatus/:idStatus", getReviewsByStatus);
 router.get("/getallavg", getAllAvg);
 router.get("/getordenbyuserbydate/:idUser", getOrdenByUserByDate);
+router.get("/getordenbyuserbydate2/:idUser", getOrdenByUserByDate2);
 // router.get("/webhook", receiveWebhook);
 
 //------------------ POSTS ---------------------
