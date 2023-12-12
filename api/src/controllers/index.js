@@ -21,6 +21,7 @@ const getEnvioByDire = require("./DireController/getEnvioByDire");
 const getDireccionByUser = require("./DireController/getDireccionByUser");
 const getOrdenCarrito = require("./OrdenController/getOrdenCarrito");
 const getOrdenByUserByDate = require("./OrdenController/getOrdenByUserByDate");
+const getOrdenByUserByDate2 = require("./OrdenController/getOrdenByUserByDate2");
 
 //fin gets
 
@@ -134,6 +135,7 @@ module.exports = {
   updateDireById,
   updatePassword,
   getOrdenByUserByDate,
+  getOrdenByUserByDate2,
 };
 
 // comentarios
