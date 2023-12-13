@@ -1,8 +1,8 @@
 const nodemailer = require("nodemailer")
 
 
-async function sendBill(req, res) {
-    const { name, email, compras } = req.body;
+async function sendBill(newArray,req, res) {
+  console.log("hola", newArray)
     const config = {
         host: 'smtp.gmail.com',
         port: 587,
@@ -12,6 +12,7 @@ async function sendBill(req, res) {
         }
     };
 
+    const total = newArray.reduce((acc, item) => acc + item.unit_price, 0);
     const htmlBody = `
     <html>
     <head>
@@ -110,47 +111,46 @@ async function sendBill(req, res) {
 <div class="plan-card">
     <h2>Tu recibo de compra<span>Food Express</span></h2>
     <div class="etiquet-price">
-        <p>$250 /Total</p>
+        <p>$${total} /Total</p>
         <div></div>
     </div>
     <div class="benefits-list">
         <ul>
-            <li><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M243.8 339.8C232.9 350.7 215.1 350.7 204.2 339.8L140.2 275.8C129.3 264.9 129.3 247.1 140.2 236.2C151.1 225.3 168.9 225.3 179.8 236.2L224 280.4L332.2 172.2C343.1 161.3 360.9 161.3 371.8 172.2C382.7 183.1 382.7 200.9 371.8 211.8L243.8 339.8zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z"></path>
-                </svg><span>1 ${compras}</span></li>
-            <li><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M243.8 339.8C232.9 350.7 215.1 350.7 204.2 339.8L140.2 275.8C129.3 264.9 129.3 247.1 140.2 236.2C151.1 225.3 168.9 225.3 179.8 236.2L224 280.4L332.2 172.2C343.1 161.3 360.9 161.3 371.8 172.2C382.7 183.1 382.7 200.9 371.8 211.8L243.8 339.8zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z"></path>
-                </svg><span>1 Papas fritas</span></li>
-            <li><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M243.8 339.8C232.9 350.7 215.1 350.7 204.2 339.8L140.2 275.8C129.3 264.9 129.3 247.1 140.2 236.2C151.1 225.3 168.9 225.3 179.8 236.2L224 280.4L332.2 172.2C343.1 161.3 360.9 161.3 371.8 172.2C382.7 183.1 382.7 200.9 371.8 211.8L243.8 339.8zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z"></path>
-                </svg><span>Medio de pago: tarjeta</span></li>
-                <li><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                <path d="M243.8 339.8C232.9 350.7 215.1 350.7 204.2 339.8L140.2 275.8C129.3 264.9 129.3 247.1 140.2 236.2C151.1 225.3 168.9 225.3 179.8 236.2L224 280.4L332.2 172.2C343.1 161.3 360.9 161.3 371.8 172.2C382.7 183.1 382.7 200.9 371.8 211.8L243.8 339.8zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z"></path>
-            </svg><span></span></li>
-            
+          ${generateItemsListHtml(newArray)}
         </ul>
     </div>
-    <span>Gracias ${name} por elegir nuestro servicio.</span>
+    <span>Gracias acá va el nombre por elegir nuestro servicio.</span>
     </div>
   </html>
 `;
 
+
+function generateItemsListHtml(items) {
+  return items.map(item => `
+    <li>
+      <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <path d="M243.8 339.8C232.9 350.7 215.1 350.7 204.2 339.8L140.2 275.8C129.3 264.9 129.3 247.1 140.2 236.2C151.1 225.3 168.9 225.3 179.8 236.2L224 280.4L332.2 172.2C343.1 161.3 360.9 161.3 371.8 172.2C382.7 183.1 382.7 200.9 371.8 211.8L243.8 339.8zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z"></path>
+      </svg>
+      Descripcion:${item.description}<br>
+      Cantidad:${item.quantity}<br>
+      Precio P/U:${item.unit_price}
+    </li>
+  `).join('');
+};
+
     const mensaje = {
         from: 'food.expresshenry@gmail.com', 
-        to: email,
-        subject: `Hola ${name}, tu recibo de compra desde la pagina de Food Express`,
-        text: compras,
+        to: 'axelgo.sosa@gmail.com',
+        subject: `Hola Axel, tu recibo de compra desde la pagina de Food Express`,
+        text: 'Gracias por tu compra',
         html: htmlBody
     };
 
     try {
         const transport = nodemailer.createTransport(config);
         const info = await transport.sendMail(mensaje);
-        console.log('Correo electrónico enviado:', info);
-        res.status(200).json({ message: 'Correo electrónico enviado exitosamente.' });
     } catch (error) {
         console.error('Error al enviar el correo electrónico:', error);
-        res.status(500).json({ error: 'Error al enviar el correo electrónico.' });
     }
 };
 

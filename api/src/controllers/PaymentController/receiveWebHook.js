@@ -99,7 +99,7 @@ const receiveWebHook = async (req, res) => {
         webhookResponse = { paymentInfo, payerInfo, orderInfo }; // recupera la data
 
         // res.status(204).send("Webhook hizo su trabajo");
-
+        console.log("soy el webhok", webhookResponse)
         res.status(204).json(webhookResponse); //envia la data
       } else {
         res.status(400).send("Tipo de pago no válido");
