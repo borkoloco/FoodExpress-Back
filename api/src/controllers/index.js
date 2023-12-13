@@ -23,6 +23,7 @@ const getOrdenCarrito = require("./OrdenController/getOrdenCarrito");
 const getOrdenByUserByDate = require("./OrdenController/getOrdenByUserByDate");
 const getOrdenByUserByDate2 = require("./OrdenController/getOrdenByUserByDate2");
 const getUsersBanned = require("./UserController/getUsersBanned");
+const getAllUsers = require("./UserController/getAllUsers");
 
 //fin gets
 
@@ -140,6 +141,7 @@ module.exports = {
   getOrdenByUserByDate2,
   getUsersBanned,
   updateBanned,
+  getAllUsers,
 };
 
 // comentarios

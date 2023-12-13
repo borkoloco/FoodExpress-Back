@@ -28,6 +28,11 @@ const registerCtrl = async (req, res) => {
         });
       }
     } else {
+      const existingUser = await User.findOne({ email });
+
+      if (existingUser) {
+        return res.status(400).json({ error: "El correo ya está registrado" });
+      }
       const passwordHash = await encrypt(password);
       registerUser = await User.create({
         nameUser: nameUser,
