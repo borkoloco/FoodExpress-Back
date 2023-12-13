@@ -17,8 +17,8 @@ const getReviewsByStatus = require("./ReviewsController/getReviewsByStatus");
 const getAllAvg = require("./ReviewsController/getAllAvg");
 const getOrden = require("./OrdenController/getOrden");
 const getOrdenByUser = require("./OrdenController/getOrdenByUser");
-const getEnvioByDire = require("./EnvioController/getEnvioByDire");
-const getDireccionByUser = require("./EnvioController/getDireccionByUser");
+const getEnvioByDire = require("./DireController/getEnvioByDire");
+const getDireccionByUser = require("./DireController/getDireccionByUser");
 const getOrdenCarrito = require("./OrdenController/getOrdenCarrito");
 
 //fin gets
@@ -32,6 +32,8 @@ const deleteTipo2 = require("./TipoController/deleteTipoNoAsociado");
 const deleteReviewById = require("./ReviewsController/deleteReview");
 const deleteItemCarrito = require("./CarritoController/deleteItemCarrito");
 const deleteCarrito = require("./CarritoController/deleteCarrito");
+const deleteDiresByUser = require("./DireController/deleteDiresByUser");
+const deleteDireById = require("./DireController/deleteDireById");
 //fin deletes
 
 //posts
@@ -49,8 +51,8 @@ const sendBill = require("./EmailController/sendBill");
 const postCarrito = require("./CarritoController/postCarrito");
 const addStatus = require("./StatusController/addStatus");
 const postOrden = require("./OrdenController/postOrden");
-const postDireccion = require("./EnvioController/postDireccion");
-const postEnvio = require("./EnvioController/postEnvio");
+const postDireccion = require("./DireController/postDireccion");
+const postEnvio = require("./DireController/postEnvio");
 const postOrdenCarrito = require("./OrdenController/postOrdenCarrito");
 const receiveWebHook = require("./PaymentController/receiveWebHook");
 //fin posts
@@ -65,6 +67,8 @@ const updateReviewById = require("./ReviewsController/updateReview");
 const updateStatus = require("./StatusController/updateStatus");
 const updateReviewStatus = require("./ReviewsController/updateReviewStatus");
 const updateCantidadCarrito = require("./CarritoController/updateCantidadCarrito");
+const updateDireById = require("./DireController/updateDireById");
+const updatePassword = require("./UserController/updatePassword");
 //fin updates
 
 module.exports = {
@@ -124,6 +128,10 @@ module.exports = {
   receiveWebHook,
   getOrdenCarrito,
   postOrdenCarrito,
+  deleteDiresByUser,
+  deleteDireById,
+  updateDireById,
+  updatePassword,
 };
 
 // comentarios

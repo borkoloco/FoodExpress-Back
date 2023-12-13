@@ -9,7 +9,7 @@ async function postCarrito(req, res) {
     const user = await User.findByPk(idUser);
 
     if (!user) {
-      return res.status(404).json({ error: 'Usuario no encontrado' });
+      return res.status(404).json({ error: "Usuario no encontrado" });
     }
 
     // Obtener el carrito actual del usuario
@@ -33,7 +33,7 @@ async function postCarrito(req, res) {
       const menu = await Menu.findByPk(idMenu);
 
       if (!menu) {
-        return res.status(404).json({ error: 'Menú no encontrado' });
+        return res.status(404).json({ error: "Menú no encontrado" });
       }
 
       if (carritoObj[idMenu]) {
@@ -58,16 +58,18 @@ async function postCarrito(req, res) {
       where: {
         idUser,
       },
-      include: [{ model: Menu, as: 'menu' }],
+      include: [{ model: Menu, as: "menu" }],
     });
 
     res.status(201).json({
-      message: 'Menús agregados al carrito exitosamente',
+      message: "Menús agregados al carrito exitosamente",
       carritoItems: carritoActualizado,
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Error al agregar al carrito' });
+    res
+      .status(500)
+      .json({ error: "Error al agregar al carrito", error: error.message });
   }
 }
 
