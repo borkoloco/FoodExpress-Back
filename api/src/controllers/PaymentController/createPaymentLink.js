@@ -1,6 +1,7 @@
 const mercadopago = require("mercadopago");
 const dotenv = require("dotenv");
 dotenv.config();
+const sendBill = require("../EmailController/sendBill");
 
 mercadopago.configure({
   access_token: process.env.ACCESS_TOKEN || "",
@@ -46,7 +47,9 @@ const createPaymentLink = async (req, res) => {
     };
 
     const response = await mercadopago.preferences.create(preference);
-    console.log(response);
+    console.log("soy newarray", newArray);
+    await sendBill(newArray);
+    
     res.status(200).json(response.response.init_point);
   } catch (error) {
     console.log(error);
