@@ -7,9 +7,7 @@ const getReviewsByUser = async (req, res) => {
     const userReviews = await Review.findAll({ where: { idUser: idUser } });
 
     if (!userReviews || userReviews.length === 0) {
-      return res
-        .status(404)
-        .json({ error: "No se encontraron reviews para este usuario" });
+      return res.status(200).json([]);
     }
 
     res.status(200).json(userReviews);

@@ -28,10 +28,10 @@ module.exports = (sequelize) => {
         type: DataTypes.DATEONLY,
         defaultValue: DataTypes.NOW,
       },
-      // status: {
-      //   type: DataTypes.ENUM("Aprobado", "Rechazado", "Pendiente"),
-      //   defaultValue: "Pendiente",
-      // },
+      idStatus: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
     },
     {
       timestamps: false,

@@ -1,15 +1,16 @@
 const { DataTypes } = require("sequelize");
+
 module.exports = (sequelize) => {
   sequelize.define(
-    "tipo",
+    "status",
     {
-      idTipoMenu: {
+      idStatus: {
         type: DataTypes.INTEGER,
-        autoIncrement: true,
         primaryKey: true,
+        autoIncrement: true,
         allowNull: false,
       },
-      nameTipo: {
+      statusDescription: {
         type: DataTypes.STRING,
         allowNull: false,
         // unique: true,

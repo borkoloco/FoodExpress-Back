@@ -6,6 +6,12 @@ const registerCtrl = async (req, res) => {
     const { nameUser, email, password, idRole, authProvider, idAuthProvider } =
       req.body;
 
+    if (password.length < 5) {
+      return res
+        .status(400)
+        .json({ error: "Password must contain at least 5 characters" });
+    }
+
     let registerUser;
 
     if (authProvider && idAuthProvider) {
@@ -22,6 +28,11 @@ const registerCtrl = async (req, res) => {
         });
       }
     } else {
+      const existingUser = await User.findOne({ where: { email: email } });
+
+      if (existingUser) {
+        return res.status(400).json({ error: "Email already registered" });
+      }
       const passwordHash = await encrypt(password);
       registerUser = await User.create({
         nameUser: nameUser,
@@ -34,7 +45,7 @@ const registerCtrl = async (req, res) => {
     res.status(200).json(registerUser);
   } catch (error) {
     console.log(error);
-    res.status(500).json({ error: "Error al registrar el usuario" });
+    res.status(500).json({ error: "Error to register user" });
   }
 };
 
