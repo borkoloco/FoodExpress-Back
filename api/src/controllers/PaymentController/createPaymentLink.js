@@ -38,11 +38,12 @@ const createPaymentLink = async (req, res) => {
         pending: "http://localhost:5173/pending",
       },
 
-      // notification_url:"https://foodexpress-back-production.up.railway.app/webhook",
+      notification_url:
+        "https://foodexpress-back-production.up.railway.app/webhook",
 
       //aca debe ir la direccion que se recibe en el ngrok y reemplazarla
 
-      notification_url: "https://f91f-181-110-92-145.ngrok.io/webhook",
+      // notification_url: "https://f91f-181-110-92-145.ngrok.io/webhook",
       // auto_return: "approved",
     };
 
