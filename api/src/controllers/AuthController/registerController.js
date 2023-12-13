@@ -28,7 +28,7 @@ const registerCtrl = async (req, res) => {
         });
       }
     } else {
-      const existingUser = await User.findOne({ email });
+      const existingUser = await User.findOne({ email: email });
 
       if (existingUser) {
         return res.status(400).json({ error: "Email already registered" });
