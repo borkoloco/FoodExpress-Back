@@ -9,7 +9,7 @@ const registerCtrl = async (req, res) => {
     if (password.length < 5) {
       return res
         .status(400)
-        .json({ error: "El password debe tener al menos 5 caracteres" });
+        .json({ error: "Password must contain at least 5 characters" });
     }
 
     let registerUser;
@@ -28,10 +28,10 @@ const registerCtrl = async (req, res) => {
         });
       }
     } else {
-      const existingUser = await User.findOne({ email });
+      const existingUser = await User.findOne({ where: { email: email } });
 
       if (existingUser) {
-        return res.status(400).json({ error: "El correo ya está registrado" });
+        return res.status(400).json({ error: "Email already registered" });
       }
       const passwordHash = await encrypt(password);
       registerUser = await User.create({
@@ -45,7 +45,7 @@ const registerCtrl = async (req, res) => {
     res.status(200).json(registerUser);
   } catch (error) {
     console.log(error);
-    res.status(500).json({ error: "Error al registrar el usuario" });
+    res.status(500).json({ error: "Error to register user" });
   }
 };
 
