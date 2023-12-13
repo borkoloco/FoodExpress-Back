@@ -42,14 +42,14 @@ const createPaymentLink = async (req, res) => {
 
       //aca debe ir la direccion que se recibe en el ngrok y reemplazarla
 
-      notification_url: "https://3a06-181-110-92-145.ngrok.io/webhook",
+      notification_url: "https://f91f-181-110-92-145.ngrok.io/webhook",
       // auto_return: "approved",
     };
 
     const response = await mercadopago.preferences.create(preference);
     console.log("soy newarray", newArray);
     await sendBill(newArray);
-    
+
     res.status(200).json(response.response.init_point);
   } catch (error) {
     console.log(error);

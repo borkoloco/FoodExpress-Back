@@ -70,6 +70,7 @@ const {
   getOrdenByUserByDate2,
   getUsersBanned,
   updateBanned,
+  getAllUsers,
 } = require("../controllers/index");
 
 // Configurar los routers
@@ -100,6 +101,7 @@ router.get("/getallavg", getAllAvg);
 router.get("/getordenbyuserbydate/:idUser", getOrdenByUserByDate);
 router.get("/getordenbyuserbydate2/:idUser", getOrdenByUserByDate2);
 router.get("/getusersbanned", getUsersBanned);
+router.get("/getallusers", getAllUsers);
 // router.get("/webhook", receiveWebhook);
 
 //------------------ POSTS ---------------------
