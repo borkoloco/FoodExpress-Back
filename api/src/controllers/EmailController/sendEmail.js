@@ -15,8 +15,8 @@ async function sendEmail(req, res) {
     const mensaje = {
         from: email, 
         to: 'food.expresshenry@gmail.com',
-        subject: 'Comentario desde la pagina de: ' + name +" " + email,
-        text: 'Correo:' + email + " " + 'Comentario:' + Comment,
+        subject: 'Comentario desde la pagina de: ' + name,
+        text: 'Correo: ' + email + " " + 'Comentario: ' + comment,
     }
 
     try {

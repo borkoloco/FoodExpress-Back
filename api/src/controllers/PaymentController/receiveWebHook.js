@@ -20,9 +20,6 @@ const receiveWebHook = async (req, res) => {
       const userEmail = payerInfo.email;
       const username = data.response.metadata.username;
 
-      console.log("Este es el email " + userEmail);
-      console.log("Este es el username " + username);
-
       // Verificar el estado y realizar acciones correspondientes
       if (data.response.status === "approved") {
         // Iterar sobre los elementos del carrito
@@ -121,6 +118,8 @@ const receiveWebHook = async (req, res) => {
         // res.status(204).send("Webhook hizo su trabajo");
         console.log("soy el webhok", webhookResponse);
         res.status(204).json(webhookResponse); //envia la data
+        console.log("Este es el email " + userEmail);
+        console.log("Este es el username " + username);
       } else {
         res.status(400).send("Tipo de pago no válido");
       }
