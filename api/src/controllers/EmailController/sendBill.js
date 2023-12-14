@@ -142,7 +142,7 @@ function generateItemsListHtml(items) {
         from: 'food.expresshenry@gmail.com', 
         to: email,
         subject: `Hola ${name}, tu recibo de compra desde la pagina de Food Express`,
-        text: 'Gracias por tu compra',
+        text: 'Gracias por tu compra.',
         html: htmlBody
     };
 

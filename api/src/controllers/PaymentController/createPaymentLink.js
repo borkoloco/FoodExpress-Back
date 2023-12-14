@@ -54,7 +54,6 @@ const createPaymentLink = async (req, res) => {
 
     const response = await mercadopago.preferences.create(preference);
     console.log(response.response.init_point);
-    console.log("soy newarray", newArray);
     await sendBill(newArray, email, name);
 
     res.status(200).json(response.response.init_point);
