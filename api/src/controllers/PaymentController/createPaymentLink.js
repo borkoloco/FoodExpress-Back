@@ -9,12 +9,13 @@ mercadopago.configure({
 
 const createPaymentLink = async (req, res) => {
   const sesion = req.body;
+  const { email, name } = req.body;
   console.log(sesion);
 
   const newArray = sesion.propertiesReadyToSend.map((i) => {
     return {
       id: i.idMenu,
-      title: i.name,
+      title: i.nameMenu,
       unit_price: i.price,
       quantity: i.quantity,
       description: i.description,
@@ -48,7 +49,7 @@ const createPaymentLink = async (req, res) => {
 
     const response = await mercadopago.preferences.create(preference);
     console.log("soy newarray", newArray);
-    await sendBill(newArray);
+    await sendBill(newArray, email, name)
 
     res.status(200).json(response.response.init_point);
   } catch (error) {
