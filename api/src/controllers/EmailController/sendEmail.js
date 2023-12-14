@@ -16,8 +16,8 @@ async function sendEmail(req, res) {
         from: email, 
         to: 'food.expresshenry@gmail.com',
         subject: 'Comentario desde la pagina de: ' + name +" " + email,
-        text: comment
-    };
+        text: 'Correo:' + email + " " + 'Comentario:' + Comment,
+    }
 
     try {
         const transport = nodemailer.createTransport(config);

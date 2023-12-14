@@ -15,12 +15,12 @@ const loginCtrl = async (req, res) => {
     }
 
     if (!user) {
-      res.status(404).json({ error: "No se encontró el usuario" });
+      res.status(404).json({ error: "User not found" });
       return;
     }
 
     if (authProvider && idAuthProvider) {
-      res.status(200).json({ data: user, message: "Login exitoso" });
+      res.status(200).json({ data: user, message: "Login successful" });
       return;
     }
 
@@ -28,7 +28,7 @@ const loginCtrl = async (req, res) => {
       const checkPassword = await compare(password, user.password);
 
       if (!checkPassword) {
-        res.status(401).json({ error: "Credenciales inválidas" });
+        res.status(401).json({ error: "Invalid Credentials" });
         return;
       }
     }
@@ -38,11 +38,11 @@ const loginCtrl = async (req, res) => {
     res.status(200).json({
       data: user,
       // tokenSession,
-      message: "Login exitoso",
+      message: "Successful login",
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: "Error al iniciar sesión" });
+    res.status(500).json({ error: "Error to start session" });
   }
 };
 

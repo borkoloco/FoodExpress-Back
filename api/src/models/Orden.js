@@ -33,11 +33,11 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: true,
       },
-      costoEnvio: {
+      direccion: {
         type: DataTypes.STRING,
         allowNull: true,
       },
-      statusEnvio: {
+      nota: {
         type: DataTypes.STRING,
         allowNull: true,
       },

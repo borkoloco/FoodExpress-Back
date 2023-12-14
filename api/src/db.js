@@ -109,6 +109,10 @@ Review.belongsTo(Status, {
 Carrito.belongsTo(User, { foreignKey: "idUser", as: "user" });
 Carrito.belongsTo(Menu, { foreignKey: "idMenu", as: "menu" });
 
+Direccion.hasOne(User, { foreignKey: "idDireccion" });
+
+Envio.hasOne(Direccion, { foreignKey: "idEnvio" });
+
 // Carrito.belongsTo(User, { foreignKey: 'idUser' });
 // Carrito.belongsTo(Menu, { foreignKey: 'idMenu' });
 
@@ -125,7 +129,6 @@ Carrito.belongsTo(Menu, { foreignKey: "idMenu", as: "menu" });
 // User.belongsTo(Direccion, { foreignKey: "idDireccion", as: "direccion" });
 
 // Definir la relación de uno a uno con la tabla Direccion
-Direccion.hasOne(User, { foreignKey: "idDireccion" });
 
 // Orden.belongsTo(User, { foreignKey: 'idUser' });
 // Orden.belongsToMany(Menu, { through: 'OrdenMenu', foreignKey: 'idOrden' });

@@ -1,6 +1,7 @@
 const mercadopago = require("mercadopago");
 const dotenv = require("dotenv");
 dotenv.config();
+const sendBill = require("../EmailController/sendBill");
 
 mercadopago.configure({
   access_token: process.env.ACCESS_TOKEN || "",
@@ -27,16 +28,18 @@ const createPaymentLink = async (req, res) => {
 
       metadata: {
         user_id: sesion.idUser,
+        address: sesion.address,
+        note: sesion.note,
       },
 
       back_urls: {
-        success: "http://localhost:3000/successPayment",
-        failure: "http://localhost:3000/failurePayment",
-        pending: "http://localhost:3000/pendingPayment",
+        success: "http://localhost:5173/success",
+        failure: "http://localhost:5173/failure",
+        pending: "http://localhost:5173/pending",
       },
 
       notification_url:
-        "https://5a6b-2803-9800-9897-6c92-cd47-9db7-8df4-17b5.ngrok.io/webhook",
+        "https://b092-2803-9800-9897-6c92-1198-5f00-3d9b-5aab.ngrok.io/webhook",
 
       // notification_url:"https://1560-2001-1388-35a3-fed0-a7dd-773-887f-a99d.ngrok.io/webhook",
 
@@ -44,11 +47,15 @@ const createPaymentLink = async (req, res) => {
 
       //aca debe ir la direccion que se recibe en el ngrok y reemplazarla
 
+      //notification_url: "https://f91f-181-110-92-145.ngrok.io/webhook",
       // auto_return: "approved",
     };
 
     const response = await mercadopago.preferences.create(preference);
     console.log(response.response.init_point);
+    console.log("soy newarray", newArray);
+    await sendBill(newArray);
+
     res.status(200).json(response.response.init_point);
   } catch (error) {
     console.log(error);
