@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer")
 
 
-async function sendBill(newArray,req, res) {
+async function sendBill(newArray, email, name, req, res) {
   console.log("hola", newArray)
     const config = {
         host: 'smtp.gmail.com',
@@ -12,7 +12,7 @@ async function sendBill(newArray,req, res) {
         }
     };
 
-    const total = newArray.reduce((acc, item) => acc + item.unit_price, 0);
+    const total = newArray.reduce((acc, item) => acc + item.unit_price * item.quantity, 0);
     const htmlBody = `
     <html>
     <head>
@@ -119,7 +119,7 @@ async function sendBill(newArray,req, res) {
           ${generateItemsListHtml(newArray)}
         </ul>
     </div>
-    <span>Gracias acá va el nombre por elegir nuestro servicio.</span>
+    <span>Gracias ${name} por elegir nuestro servicio.</span>
     </div>
   </html>
 `;
@@ -140,8 +140,8 @@ function generateItemsListHtml(items) {
 
     const mensaje = {
         from: 'food.expresshenry@gmail.com', 
-        to: 'axelgo.sosa@gmail.com',
-        subject: `Hola Axel, tu recibo de compra desde la pagina de Food Express`,
+        to: email,
+        subject: `Hola ${name}, tu recibo de compra desde la pagina de Food Express`,
         text: 'Gracias por tu compra',
         html: htmlBody
     };
