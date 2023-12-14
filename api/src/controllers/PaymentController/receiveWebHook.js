@@ -65,7 +65,7 @@ const receiveWebHook = async (req, res) => {
           username,
         }; // para recuperar la data
 
-        res.status(204).send("Webhook hizo su trabajo");
+        // res.status(204).send("Webhook hizo su trabajo");
         console.log(data.response);
         // res.status(204).send("Webhook hizo su trabajo");
 
