@@ -8,14 +8,17 @@ const receiveWebHook = async (req, res) => {
   try {
     if (payment.type === "payment") {
       const data = await mercadopago.payment.findById(payment["data.id"]);
-      console.log(data.response);
-      console.log("console.log de data.status", data.response.status);
-      console.log("ID user:", data.response.metadata);
-      console.log("ID'MENU:", data.response.additional_info.items);
+      //console.log(data.response);
+
+      //console.log("console.log de data.status", data.response.status);
+      //console.log("ID user:", data.response.metadata);
+      //console.log("ID'MENU:", data.response.additional_info.items);
 
       const paymentInfo = data.response.payment_method;
       const payerInfo = data.response.payer;
       const orderInfo = data.response.order;
+      const userEmail = payerInfo.email;
+      const username = data.response.metadata.username;
 
       // Verificar el estado y realizar acciones correspondientes
       if (data.response.status === "approved") {
@@ -32,7 +35,7 @@ const receiveWebHook = async (req, res) => {
             include: [{ model: Menu, as: "menu" }],
           });
 
-          // Crear un nuevo registro en la tabla Orden con los datos del carrito
+          // Crear un nuevo registro en la tabla Orden con los datos del carriSto
           await Orden.create({
             idUser: carritoItem.idUser,
             idMenu: carritoItem.menu.idMenu,
@@ -54,8 +57,16 @@ const receiveWebHook = async (req, res) => {
             },
           });
         }
-        webhookResponse = { paymentInfo, payerInfo, orderInfo }; // para recuperar la data
+        webhookResponse = {
+          paymentInfo,
+          payerInfo,
+          orderInfo,
+          userEmail,
+          username,
+        }; // para recuperar la data
 
+        res.status(204).send("Webhook hizo su trabajo");
+        console.log(data.response);
         // res.status(204).send("Webhook hizo su trabajo");
 
         res.status(204).json(webhookResponse); // para enviar la data
@@ -96,11 +107,19 @@ const receiveWebHook = async (req, res) => {
           });
         }
 
-        webhookResponse = { paymentInfo, payerInfo, orderInfo }; // recupera la data
+        webhookResponse = {
+          paymentInfo,
+          payerInfo,
+          orderInfo,
+          userEmail,
+          username,
+        }; // recupera la data
 
         // res.status(204).send("Webhook hizo su trabajo");
-        console.log("soy el webhok", webhookResponse)
+        console.log("soy el webhok", webhookResponse);
         res.status(204).json(webhookResponse); //envia la data
+        console.log("Este es el email " + userEmail);
+        console.log("Este es el username " + username);
       } else {
         res.status(400).send("Tipo de pago no válido");
       }
