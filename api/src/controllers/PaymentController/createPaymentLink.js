@@ -35,7 +35,7 @@ const createPaymentLink = async (req, res) => {
         address: sesion.address,
         note: sesion.note,
         email: user.email,
-        username: user.username,
+        username: user.nameUser,
       },
 
       back_urls: {
@@ -45,7 +45,10 @@ const createPaymentLink = async (req, res) => {
       },
 
       notification_url:
-        "https://b092-2803-9800-9897-6c92-1198-5f00-3d9b-5aab.ngrok.io/webhook",
+        "https://foodexpress-back-production.up.railway.app/webhook",
+
+      // notification_url:
+      //   "https://b092-2803-9800-9897-6c92-1198-5f00-3d9b-5aab.ngrok.io/webhook",
     };
 
     const response = await mercadopago.preferences.create(preference);
