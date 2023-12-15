@@ -10,7 +10,7 @@ mercadopago.configure({
 
 const createPaymentLink = async (req, res) => {
   const sesion = req.body;
-  const {email, name} = req.body;
+  const { email, name } = req.body;
   console.log(sesion);
 
   try {
@@ -39,10 +39,15 @@ const createPaymentLink = async (req, res) => {
         username: user.nameUser,
       },
 
+      // back_urls: {
+      //   success: "http://localhost:5173/success",
+      //   failure: "http://localhost:5173/failure",
+      //   pending: "http://localhost:5173/pending",
+      // },
       back_urls: {
-        success: "http://localhost:5173/success",
-        failure: "http://localhost:5173/failure",
-        pending: "http://localhost:5173/pending",
+        success: "https://foodexpress-alpha.vercel.app/success",
+        failure: "https://foodexpress-alpha.vercel.app/failure",
+        pending: "https://foodexpress-alpha.vercel.app/pending",
       },
 
       notification_url:
