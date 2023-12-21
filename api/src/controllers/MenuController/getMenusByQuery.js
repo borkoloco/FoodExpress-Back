@@ -2,13 +2,19 @@ const { Sequelize, Op } = require("sequelize");
 const { Menu, Especialidad, Tipo } = require("../../db");
 
 const getMenusByQuery = async (name) => {
+  console.log('holis');
   try {
     const menus = await Menu.findAll({
       where: {
         // Utiliza la condición LIKE para buscar por nombre parcial
-        nameMenu: {
-          [Op.iLike]: `%${name}%`,
-        },
+        // nameMenu: {
+        //   [Op.Like]: `%${name}%`,
+        // },
+        [Op.and]: [
+          Sequelize.where(Sequelize.fn('LOWER', Sequelize.col('menu.nameMenu')), {
+            [Op.Like]: name,
+          }),
+        ],
       },
       include: [
         {
@@ -32,7 +38,9 @@ const getMenusByQuery = async (name) => {
 };
 
 const getMenusByQueryHandler = (req, res) => {
-  const { name } = req.query;
+  let { name } = req.query;
+  name = decodeURIComponent(name)
+  name = name.toLowerCase()
 
   // Manejo de la promesa directamente
   getMenusByQuery(name)
