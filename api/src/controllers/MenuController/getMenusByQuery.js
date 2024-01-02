@@ -2,19 +2,19 @@ const { Sequelize, Op } = require("sequelize");
 const { Menu, Especialidad, Tipo } = require("../../db");
 
 const getMenusByQuery = async (name) => {
-  console.log('holis');
+  console.log("holis");
   try {
     const menus = await Menu.findAll({
       where: {
         // Utiliza la condición LIKE para buscar por nombre parcial
-        // nameMenu: {
-        //   [Op.Like]: `%${name}%`,
-        // },
-        [Op.and]: [
-          Sequelize.where(Sequelize.fn('LOWER', Sequelize.col('menu.nameMenu')), {
-            [Op.Like]: name,
-          }),
-        ],
+        nameMenu: {
+          [Op.iLike]: `%${name}%`,
+        },
+        //   [Op.and]: [
+        //     Sequelize.where(Sequelize.fn('LOWER', Sequelize.col('menu.nameMenu')), {
+        //       [Op.Like]: name,
+        //     }),
+        //   ],
       },
       include: [
         {
@@ -39,19 +39,17 @@ const getMenusByQuery = async (name) => {
 
 const getMenusByQueryHandler = (req, res) => {
   let { name } = req.query;
-  name = decodeURIComponent(name)
-  name = name.toLowerCase()
+  name = decodeURIComponent(name);
+  name = name.toLowerCase();
 
   // Manejo de la promesa directamente
   getMenusByQuery(name)
     .then((menus) => {
       if (menus.length === 0) {
         // Envía un mensaje si no se encontraron menús
-        res
-          .status(404)
-          .json({
-            message: "No se encontraron menús con el nombre proporcionado.",
-          });
+        res.status(404).json({
+          message: "No se encontraron menús con el nombre proporcionado.",
+        });
       } else {
         // Envía los menús encontrados como respuesta
         res.status(200).json(menus);
