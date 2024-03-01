@@ -50,7 +50,7 @@ const createPaymentLink = async (req, res) => {
         pending: "https://foodexpress-alpha.vercel.app/pending",
       },
 
-      notification_url: "https://food-express-back.vercel.app//webhook",
+      notification_url: "https://food-express-back.vercel.app/webhook",
 
       // notification_url:
       //   "https://b092-2803-9800-9897-6c92-1198-5f00-3d9b-5aab.ngrok.io/webhook",
